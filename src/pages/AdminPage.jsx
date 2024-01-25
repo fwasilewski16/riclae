@@ -42,7 +42,9 @@ export default function AdminPage() {
         <div className="flex w-full justify-end gap-6 p-6">
           <div>
             <button
-              onClick={() => logout()}
+              onClick={() =>
+                logout({ returnTo: import.meta.env.VITE_SERVER_REDIRECT_URL })
+              }
               className="h-10 w-28 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
             >
               LOGOUT
