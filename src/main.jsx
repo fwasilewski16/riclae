@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain={import.meta.env.VITE_AUTH0_DOMAIN}
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       authorizationParams={{
-        redirect_uri: "https://capable-alfajores-5f025d.netlify.app/admin",
+        redirect_uri: import.meta.env.VITE_SERVER_REDIRECT_URL,
       }}
     >
       <App />
