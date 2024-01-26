@@ -174,11 +174,19 @@ export default function AddOriginal(props) {
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="image1" className="my-auto tracking-wider">
-            Image 1:
+          <label
+            htmlFor="image1"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 1:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image1"
             name="image1"
@@ -221,11 +229,19 @@ export default function AddOriginal(props) {
           </button>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="image2" className="my-auto tracking-wider">
-            Image 2:
+          <label
+            htmlFor="image2"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 2:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image2"
             name="image2"
@@ -268,11 +284,19 @@ export default function AddOriginal(props) {
           </button>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="image3" className="my-auto tracking-wider">
-            Image 3:
+          <label
+            htmlFor="image3"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 3:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image3"
             name="image3"

@@ -161,11 +161,19 @@ export default function AddPrint(props) {
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="image" className="my-auto tracking-wider">
-            Image:
+          <label
+            htmlFor="image"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image :</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image"
             name="image"

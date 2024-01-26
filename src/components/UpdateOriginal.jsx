@@ -233,11 +233,19 @@ export default function UpdateOriginal(props) {
             image1 != props.painting.images[0] && "bg-yellow-100"
           }`}
         >
-          <label htmlFor="image1" className="my-auto tracking-wider">
-            Image 1:
+          <label
+            htmlFor="image1"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 1:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image1"
             name="image1"
@@ -258,7 +266,7 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
               image1 === null && "bg-red-100"
             }`}
           >
@@ -284,11 +292,19 @@ export default function UpdateOriginal(props) {
             image2 != props.painting.images[1] && "bg-yellow-100"
           }`}
         >
-          <label htmlFor="image2" className="my-auto tracking-wider">
-            Image 2:
+          <label
+            htmlFor="image2"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 2:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image2"
             name="image2"
@@ -309,8 +325,8 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg ${
-              image2 === null && "bg-gray-200"
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+              !image2 && "bg-gray-200"
             }`}
           >
             {image2 != null && (
@@ -335,11 +351,19 @@ export default function UpdateOriginal(props) {
             image3 != props.painting.images[2] && "bg-yellow-100"
           }`}
         >
-          <label htmlFor="image3" className="my-auto tracking-wider">
-            Image 3:
+          <label
+            htmlFor="image3"
+            className="flex w-1/2 items-center justify-between tracking-wider"
+          >
+            <p className="w-1/2">Image 3:</p>
+            <div className="flex w-1/2 justify-center">
+              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
+                ADD FILE
+              </div>
+            </div>
           </label>
           <input
-            className="my-auto w-[93.58px]"
+            className="my-auto w-0"
             type="file"
             id="image3"
             name="image3"
@@ -360,8 +384,8 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg ${
-              image3 === null && "bg-gray-200"
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+              !image3 && "bg-gray-200"
             }`}
           >
             {image3 != null && (

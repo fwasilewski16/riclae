@@ -39,27 +39,25 @@ export default function AdminPage() {
             }}
           />
         )}
-        <div className="flex w-full justify-end gap-6 p-6">
-          <div>
-            <button
-              onClick={() =>
-                logout({
-                  logoutParams: {
-                    returnTo: `${window.location.origin}/admin`,
-                  },
-                })
-              }
-              className="h-10 w-28 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
-            >
-              LOGOUT
-            </button>
-          </div>
+        <div className="flex w-full justify-end p-6">
+          <button
+            onClick={() =>
+              logout({
+                logoutParams: {
+                  returnTo: `${window.location.origin}/admin`,
+                },
+              })
+            }
+            className="h-10 w-28 min-w-[112px] rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
+          >
+            LOGOUT
+          </button>
         </div>
-        <div className="flex w-full flex-col items-center">
+        <div className="flex w-full min-w-[287px] flex-col items-center">
           <h2 className="mb-10 text-5xl font-thin tracking-widest">
             Hello Claire
           </h2>
-          <div className="flex w-1/3 justify-between">
+          <div className="flex w-[500px] justify-between">
             <button
               className="h-10 w-44 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
               onClick={() => {
