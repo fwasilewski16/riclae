@@ -48,7 +48,7 @@ export default function AdminPage() {
                 },
               })
             }
-            className="h-10 w-28 min-w-[112px] rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
+            className="h-10 w-28 min-w-[112px] rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg"
           >
             LOGOUT
           </button>
@@ -59,7 +59,7 @@ export default function AdminPage() {
           </h2>
           <div className="flex w-[500px] justify-between">
             <button
-              className="h-10 w-44 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
+              className="h-10 w-44 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg"
               onClick={() => {
                 setAddOriginal(true);
               }}
@@ -67,7 +67,7 @@ export default function AdminPage() {
               ADD ORIGINAL
             </button>
             <button
-              className="h-10 w-44 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
+              className="h-10 w-44 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg"
               onClick={() => {
                 setAddPrint(true);
               }}

@@ -78,7 +78,7 @@ export default function UpdatePrint(props) {
     <div className="my-auto">
       <form
         onSubmit={updatePrint}
-        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-8 py-4"
+        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-6 py-4"
       >
         {loading && (
           <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-lg bg-white bg-opacity-80">
@@ -93,7 +93,7 @@ export default function UpdatePrint(props) {
             <div className="flex gap-16">
               <button
                 onClick={() => setDeleteWindowVisible(false)}
-                className="mt-4 h-9 w-20 rounded-lg bg-blue-400 text-lg tracking-widest text-white shadow-lg"
+                className="mt-4 h-9 w-20 rounded-lg bg-sky-400 text-lg tracking-widest text-white shadow-lg"
               >
                 NO
               </button>
@@ -157,7 +157,7 @@ export default function UpdatePrint(props) {
             id="name"
             type="text"
             defaultValue={props.painting.name}
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 ${
               name != props.painting.name && "bg-yellow-100"
             }`}
             onChange={(e) => {
@@ -176,7 +176,7 @@ export default function UpdatePrint(props) {
               id="price"
               type="number"
               defaultValue={props.painting.price}
-              className={`w-24 rounded-sm border border-gray-500 px-2 ${
+              className={`w-24 rounded-sm border border-gray-500 px-1 ${
                 price != props.painting.price && "bg-yellow-100"
               }`}
               onChange={(e) => setPrice(e.target.value)}
@@ -191,7 +191,7 @@ export default function UpdatePrint(props) {
             id="additionalInfo1"
             type="text"
             defaultValue={props.painting.additionalInfo[0]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
               additionalInfo1 != props.painting.additionalInfo[0] &&
               "bg-yellow-100"
             }`}
@@ -206,7 +206,7 @@ export default function UpdatePrint(props) {
             id="additionalInfo2"
             type="text"
             defaultValue={props.painting.additionalInfo[1]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
               additionalInfo2 != props.painting.additionalInfo[1] &&
               "bg-yellow-100"
             }`}
@@ -221,7 +221,7 @@ export default function UpdatePrint(props) {
             id="printedArea"
             type="text"
             defaultValue={props.painting.printedArea}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
               printedArea != props.painting.printedArea && "bg-yellow-100"
             }`}
             onChange={(e) => setPrintedArea(e.target.value)}
@@ -235,7 +235,7 @@ export default function UpdatePrint(props) {
             id="printSize"
             type="text"
             defaultValue={props.painting.printSize}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
               printSize != props.painting.printSize && "bg-yellow-100"
             }`}
             onChange={(e) => setPrintSize(e.target.value)}
@@ -252,8 +252,8 @@ export default function UpdatePrint(props) {
           >
             <p className="w-1/2">Image :</p>
             <div className="flex w-1/2 justify-center">
-              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
-                ADD FILE
+              <div className="flex h-8 w-24 items-center justify-center rounded-lg bg-sky-500 shadow-lg hover:cursor-pointer">
+                <p className="text-xs tracking-widest text-white">ADD FILE</p>
               </div>
             </div>
           </label>
@@ -284,7 +284,7 @@ export default function UpdatePrint(props) {
             }`}
           >
             {image != null && (
-              <img src={image} className="my-auto h-16 rounded-lg" />
+              <img src={image} className="my-auto h-16 rounded-lg border" />
             )}
           </div>
           <button
@@ -309,7 +309,7 @@ export default function UpdatePrint(props) {
             id="qty"
             type="number"
             defaultValue={props.painting.qty}
-            className={`w-24 rounded-sm border border-gray-500 px-2 ${
+            className={`w-24 rounded-sm border border-gray-500 px-1 ${
               qty != props.painting.qty && "bg-yellow-100"
             }`}
             onChange={(e) => {
@@ -334,7 +334,7 @@ export default function UpdatePrint(props) {
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="h-9 w-1/4 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
+            className="h-9 w-1/4 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
           >
             <NavLink to="/admin">BACK</NavLink>
           </button>
@@ -350,7 +350,7 @@ export default function UpdatePrint(props) {
           </button>
           <button
             disabled={!update || formDisabled}
-            className="h-9 w-1/4 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
+            className="h-9 w-1/4 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
           >
             UPDATE
           </button>

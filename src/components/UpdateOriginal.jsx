@@ -79,7 +79,7 @@ export default function UpdateOriginal(props) {
     <div className="my-auto">
       <form
         onSubmit={updateOriginal}
-        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-8 py-4"
+        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-6 py-4"
       >
         {loading && (
           <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-lg bg-white bg-opacity-80">
@@ -94,7 +94,7 @@ export default function UpdateOriginal(props) {
             <div className="flex gap-16">
               <button
                 onClick={() => setDeleteWindowVisible(false)}
-                className="mt-4 h-9 w-20 rounded-lg bg-blue-400 text-lg tracking-widest text-white shadow-lg"
+                className="mt-4 h-9 w-20 rounded-lg bg-sky-400 text-lg tracking-widest text-white shadow-lg"
               >
                 NO
               </button>
@@ -158,7 +158,7 @@ export default function UpdateOriginal(props) {
             id="name"
             type="text"
             defaultValue={props.painting.name}
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               name != props.painting.name && "bg-yellow-100"
             }`}
             onChange={(e) => {
@@ -177,7 +177,7 @@ export default function UpdateOriginal(props) {
               id="price"
               type="number"
               defaultValue={props.painting.price}
-              className={`w-24 rounded-sm border border-gray-500 px-2 ${
+              className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
                 price != props.painting.price && "bg-yellow-100"
               }`}
               onChange={(e) => setPrice(e.target.value)}
@@ -192,7 +192,7 @@ export default function UpdateOriginal(props) {
             id="year"
             type="text"
             defaultValue={props.painting.year}
-            className={`w-24 rounded-sm border border-gray-500 px-2 ${
+            className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
               year != props.painting.year && "bg-yellow-100"
             }`}
             onChange={(e) => setYear(e.target.value)}
@@ -206,7 +206,7 @@ export default function UpdateOriginal(props) {
             id="additionalInfo1"
             type="text"
             defaultValue={props.painting.additionalInfo[0]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo1 != props.painting.additionalInfo[0] &&
               "bg-yellow-100"
             }`}
@@ -221,7 +221,7 @@ export default function UpdateOriginal(props) {
             id="additionalInfo2"
             type="text"
             defaultValue={props.painting.additionalInfo[1]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo2 != props.painting.additionalInfo[1] &&
               "bg-yellow-100"
             }`}
@@ -229,7 +229,7 @@ export default function UpdateOriginal(props) {
           />
         </div>
         <div
-          className={`flex justify-between ${
+          className={`flex justify-between transition duration-500 ${
             image1 != props.painting.images[0] && "bg-yellow-100"
           }`}
         >
@@ -239,8 +239,8 @@ export default function UpdateOriginal(props) {
           >
             <p className="w-1/2">Image 1:</p>
             <div className="flex w-1/2 justify-center">
-              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
-                ADD FILE
+              <div className="flex h-8 w-24 items-center justify-center rounded-lg bg-sky-500 shadow-lg hover:cursor-pointer">
+                <p className="text-xs tracking-widest text-white">ADD FILE</p>
               </div>
             </div>
           </label>
@@ -266,12 +266,12 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
               image1 === null && "bg-red-100"
             }`}
           >
             {image1 != null && (
-              <img src={image1} className="my-auto rounded-lg" />
+              <img src={image1} className="my-auto h-16 rounded-lg border" />
             )}
           </div>
           <button
@@ -288,7 +288,7 @@ export default function UpdateOriginal(props) {
           </button>
         </div>
         <div
-          className={`flex justify-between ${
+          className={`flex justify-between transition duration-500 ${
             image2 != props.painting.images[1] && "bg-yellow-100"
           }`}
         >
@@ -298,8 +298,8 @@ export default function UpdateOriginal(props) {
           >
             <p className="w-1/2">Image 2:</p>
             <div className="flex w-1/2 justify-center">
-              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
-                ADD FILE
+              <div className="flex h-8 w-24 items-center justify-center rounded-lg bg-sky-500 shadow-lg hover:cursor-pointer">
+                <p className="text-xs tracking-widest text-white">ADD FILE</p>
               </div>
             </div>
           </label>
@@ -325,12 +325,12 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
               !image2 && "bg-gray-200"
             }`}
           >
             {image2 != null && (
-              <img src={image2} className="my-auto rounded-lg" />
+              <img src={image2} className="my-auto h-16 rounded-lg border" />
             )}
           </div>
           <button
@@ -347,7 +347,7 @@ export default function UpdateOriginal(props) {
           </button>
         </div>
         <div
-          className={`flex justify-between ${
+          className={`flex justify-between transition duration-500 ${
             image3 != props.painting.images[2] && "bg-yellow-100"
           }`}
         >
@@ -357,8 +357,8 @@ export default function UpdateOriginal(props) {
           >
             <p className="w-1/2">Image 3:</p>
             <div className="flex w-1/2 justify-center">
-              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
-                ADD FILE
+              <div className="flex h-8 w-24 items-center justify-center rounded-lg bg-sky-500 shadow-lg hover:cursor-pointer">
+                <p className="text-xs tracking-widest text-white">ADD FILE</p>
               </div>
             </div>
           </label>
@@ -384,12 +384,12 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
               !image3 && "bg-gray-200"
             }`}
           >
             {image3 != null && (
-              <img src={image3} className="my-auto rounded-lg" />
+              <img src={image3} className="my-auto h-16 rounded-lg border" />
             )}
           </div>
           <button
@@ -410,7 +410,7 @@ export default function UpdateOriginal(props) {
           <input
             id="size"
             defaultValue={props.painting.size}
-            className={`w-[275px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               size != props.painting.size && "bg-yellow-100"
             }`}
             onChange={(e) => setSize(e.target.value)}
@@ -425,7 +425,7 @@ export default function UpdateOriginal(props) {
             id="qty"
             type="number"
             defaultValue={props.painting.qty}
-            className={`w-24 rounded-sm border border-gray-500 px-2 ${
+            className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
               qty != props.painting.qty && "bg-yellow-100"
             }`}
             onChange={(e) => {
@@ -450,7 +450,7 @@ export default function UpdateOriginal(props) {
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="h-9 w-1/4 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
+            className="h-9 w-1/4 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
           >
             <NavLink to="/admin">BACK</NavLink>
           </button>
@@ -466,7 +466,7 @@ export default function UpdateOriginal(props) {
           </button>
           <button
             disabled={!update || formDisabled}
-            className="h-9 w-1/4 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
+            className="h-9 w-1/4 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
           >
             UPDATE
           </button>
@@ -475,7 +475,7 @@ export default function UpdateOriginal(props) {
       <div className="flex justify-center px-8">
         <button
           onClick={() => setDeleteWindowVisible(true)}
-          className={`mt-4 h-9 w-1/4 rounded-lg bg-red-400 text-lg tracking-widest text-white shadow-lg ${
+          className={`mt-4 h-9 w-1/4 rounded-lg bg-red-400 text-lg tracking-widest text-white shadow-lg transition duration-500 ${
             (deleteWindowVisible || loading || updateOk || deleteOk) &&
             "opacity-0"
           }`}

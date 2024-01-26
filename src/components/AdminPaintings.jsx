@@ -3,15 +3,15 @@ import useFetchPaintings from "../hooks/useFetchPaintings";
 
 function Painting(props) {
   return (
-    <div className="my-4 flex h-24 items-center justify-between rounded-lg bg-white pl-2 pr-8">
+    <div className="my-4 flex h-24 items-center justify-between rounded-lg bg-white pr-8">
       <div className="flex items-center gap-4">
         <div className="min-w-[100px]">
-          <img src={props.image} className="mx-auto h-20" />
+          <img src={props.image} className="mx-auto h-20 rounded-lg border" />
         </div>
         <p className="text-xl font-thin tracking-wider">{props.name}</p>
       </div>
       <div className="flex gap-8">
-        <button className="w-24 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg">
+        <button className="w-24 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg">
           <NavLink to={`/admin/update/${props.type}/${props._id}`}>
             EDIT
           </NavLink>

@@ -56,7 +56,7 @@ export default function AddPrint(props) {
   return (
     <Modal>
       <form
-        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-8 py-4"
+        className="relative flex w-[600px] flex-col gap-2 rounded-lg bg-white px-6 py-4"
         encType="multipart/form-data"
         method="POST"
         autoComplete="off"
@@ -91,7 +91,7 @@ export default function AddPrint(props) {
           <input
             id="name"
             type="text"
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               name ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => {
@@ -109,7 +109,7 @@ export default function AddPrint(props) {
               min={0}
               id="price"
               type="number"
-              className={`w-24 rounded-sm border border-gray-500 px-2 ${
+              className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
                 price ? "bg-green-100" : "bg-red-100"
               }`}
               onChange={(e) => setPrice(e.target.value)}
@@ -123,7 +123,7 @@ export default function AddPrint(props) {
           <input
             id="additionalInfo1"
             type="text"
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo1 ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => setAdditionalInfo1(e.target.value)}
@@ -136,7 +136,7 @@ export default function AddPrint(props) {
           <input
             id="additionalInfo2"
             type="text"
-            className="w-[250px] rounded-sm border border-gray-500 px-2"
+            className="w-[250px] rounded-sm border border-gray-500 px-1"
             onChange={(e) => setAdditionalInfo2(e.target.value)}
           />
         </div>
@@ -144,7 +144,7 @@ export default function AddPrint(props) {
           <label htmlFor="printedArea">Printed Area:</label>
           <input
             id="printedArea"
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               printedArea ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => setPrintedArea(e.target.value)}
@@ -154,7 +154,7 @@ export default function AddPrint(props) {
           <label htmlFor="printSize">Print Size:</label>
           <input
             id="printSize"
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               printSize ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => setPrintSize(e.target.value)}
@@ -167,8 +167,8 @@ export default function AddPrint(props) {
           >
             <p className="w-1/2">Image :</p>
             <div className="flex w-1/2 justify-center">
-              <div className="h-7 w-24 rounded-lg bg-blue-500 text-center tracking-widest text-white shadow-lg hover:cursor-pointer">
-                ADD FILE
+              <div className="flex h-8 w-24 items-center justify-center rounded-lg bg-sky-500 shadow-lg hover:cursor-pointer">
+                <p className="text-xs tracking-widest text-white">ADD FILE</p>
               </div>
             </div>
           </label>
@@ -194,12 +194,12 @@ export default function AddPrint(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg ${
+            className={`flex h-16 w-16 justify-center rounded-lg transition duration-500 ${
               image === null && "bg-red-100"
             }`}
           >
             {image != null && (
-              <img src={image} className="my-auto h-16 rounded-lg" />
+              <img src={image} className="my-auto h-16 rounded-lg border" />
             )}
           </div>
           <button
@@ -236,7 +236,7 @@ export default function AddPrint(props) {
             min={1}
             id="qty"
             type="number"
-            className={`w-24 rounded-sm border border-gray-500 px-2 ${
+            className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
               qty ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => {
@@ -251,7 +251,7 @@ export default function AddPrint(props) {
           <input
             id="id"
             type="text"
-            className={`w-[250px] rounded-sm border border-gray-500 px-2 ${
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               id ? "bg-green-100" : "bg-red-100"
             }`}
             onChange={(e) => {
@@ -269,7 +269,7 @@ export default function AddPrint(props) {
           <button
             disabled={formDisabled}
             type="submit"
-            className="h-9 w-1/4 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
+            className="h-9 w-1/4 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg disabled:opacity-30"
           >
             SUBMIT
           </button>
