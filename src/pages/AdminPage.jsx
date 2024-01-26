@@ -43,7 +43,11 @@ export default function AdminPage() {
           <div>
             <button
               onClick={() =>
-                logout({ returnTo: import.meta.env.VITE_SERVER_REDIRECT_URL })
+                logout({
+                  logoutParams: {
+                    returnTo: `${window.location.origin}/admin`,
+                  },
+                })
               }
               className="h-10 w-28 rounded-lg bg-blue-500 text-lg tracking-widest text-white shadow-lg"
             >
