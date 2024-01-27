@@ -159,8 +159,8 @@ export default function UpdateOriginal(props) {
             type="text"
             defaultValue={props.painting.name}
             className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
-              name != props.painting.name && "bg-yellow-100"
-            }`}
+              name != props.painting.name && name && "bg-yellow-100"
+            } ${!name && "bg-red-100"}`}
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -178,8 +178,8 @@ export default function UpdateOriginal(props) {
               type="number"
               defaultValue={props.painting.price}
               className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
-                price != props.painting.price && "bg-yellow-100"
-              }`}
+                price != props.painting.price && price && "bg-yellow-100"
+              } ${!price && "bg-red-100"}`}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -193,8 +193,8 @@ export default function UpdateOriginal(props) {
             type="text"
             defaultValue={props.painting.year}
             className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
-              year != props.painting.year && "bg-yellow-100"
-            }`}
+              year != props.painting.year && year && "bg-yellow-100"
+            } ${!year && "bg-red-100"}`}
             onChange={(e) => setYear(e.target.value)}
           ></input>
         </div>
@@ -208,8 +208,9 @@ export default function UpdateOriginal(props) {
             defaultValue={props.painting.additionalInfo[0]}
             className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo1 != props.painting.additionalInfo[0] &&
+              additionalInfo1 &&
               "bg-yellow-100"
-            }`}
+            } ${!additionalInfo1 && "bg-red-100"}`}
             onChange={(e) => setAdditionalInfo1(e.target.value)}
           />
         </div>
@@ -223,13 +224,14 @@ export default function UpdateOriginal(props) {
             defaultValue={props.painting.additionalInfo[1]}
             className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo2 != props.painting.additionalInfo[1] &&
+              additionalInfo2 &&
               "bg-yellow-100"
-            }`}
+            } ${!additionalInfo2 && "bg-red-100"}`}
             onChange={(e) => setAdditionalInfo2(e.target.value)}
           />
         </div>
         <div
-          className={`flex justify-between transition duration-500 ${
+          className={`flex justify-between rounded-lg transition duration-500 ${
             image1 != props.painting.images[0] && "bg-yellow-100"
           }`}
         >
@@ -266,8 +268,8 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
-              image1 === null && "bg-red-100"
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+              !image1 && "bg-red-100"
             }`}
           >
             {image1 != null && (
@@ -288,7 +290,7 @@ export default function UpdateOriginal(props) {
           </button>
         </div>
         <div
-          className={`flex justify-between transition duration-500 ${
+          className={`flex justify-between rounded-lg transition duration-500 ${
             image2 != props.painting.images[1] && "bg-yellow-100"
           }`}
         >
@@ -325,7 +327,7 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
               !image2 && "bg-gray-200"
             }`}
           >
@@ -347,7 +349,7 @@ export default function UpdateOriginal(props) {
           </button>
         </div>
         <div
-          className={`flex justify-between transition duration-500 ${
+          className={`flex justify-between rounded-lg transition duration-500 ${
             image3 != props.painting.images[2] && "bg-yellow-100"
           }`}
         >
@@ -384,7 +386,7 @@ export default function UpdateOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg transition duration-500 ${
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
               !image3 && "bg-gray-200"
             }`}
           >
@@ -411,8 +413,8 @@ export default function UpdateOriginal(props) {
             id="size"
             defaultValue={props.painting.size}
             className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
-              size != props.painting.size && "bg-yellow-100"
-            }`}
+              size != props.painting.size && size && "bg-yellow-100"
+            } ${!size && "bg-red-100"}`}
             onChange={(e) => setSize(e.target.value)}
           ></input>
         </div>
@@ -426,8 +428,8 @@ export default function UpdateOriginal(props) {
             type="number"
             defaultValue={props.painting.qty}
             className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
-              qty != props.painting.qty && "bg-yellow-100"
-            }`}
+              qty != props.painting.qty && qty && "bg-yellow-100"
+            } ${!qty && "bg-red-100"}`}
             onChange={(e) => {
               setQty(e.target.value);
             }}

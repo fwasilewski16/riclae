@@ -207,8 +207,8 @@ export default function AddOriginal(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg transition duration-500 ${
-              image1 === null && "bg-red-100"
+            className={`flex h-16 w-16 justify-center rounded-lg ${
+              !image1 && "bg-red-200"
             }`}
           >
             {image1 != null && (
@@ -261,11 +261,7 @@ export default function AddOriginal(props) {
               }
             }}
           />
-          <div
-            className={`flex h-16 w-16 justify-center rounded-lg transition duration-500 ${
-              image2 === null && "bg-gray-200"
-            }`}
-          >
+          <div className="flex h-16 w-16 justify-center rounded-lg bg-gray-200">
             {image2 != null && (
               <img src={image2} className="my-auto h-16 rounded-lg border" />
             )}
@@ -316,11 +312,7 @@ export default function AddOriginal(props) {
               }
             }}
           />
-          <div
-            className={`flex h-16 w-16 justify-center rounded-lg transition duration-500 ${
-              image3 === null && "bg-gray-200"
-            }`}
-          >
+          <div className="flex h-16 w-16 justify-center rounded-lg bg-gray-200">
             {image3 != null && (
               <img src={image3} className="my-auto h-16 rounded-lg border" />
             )}

@@ -157,9 +157,9 @@ export default function UpdatePrint(props) {
             id="name"
             type="text"
             defaultValue={props.painting.name}
-            className={`w-[250px] rounded-sm border border-gray-500 px-1 ${
-              name != props.painting.name && "bg-yellow-100"
-            }`}
+            className={`w-[250px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
+              name != props.painting.name && name && "bg-yellow-100"
+            } ${!name && "bg-red-100"}`}
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -176,9 +176,9 @@ export default function UpdatePrint(props) {
               id="price"
               type="number"
               defaultValue={props.painting.price}
-              className={`w-24 rounded-sm border border-gray-500 px-1 ${
-                price != props.painting.price && "bg-yellow-100"
-              }`}
+              className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
+                price != props.painting.price && price && "bg-yellow-100"
+              } ${!price && "bg-red-100"}`}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -191,10 +191,11 @@ export default function UpdatePrint(props) {
             id="additionalInfo1"
             type="text"
             defaultValue={props.painting.additionalInfo[0]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo1 != props.painting.additionalInfo[0] &&
+              additionalInfo1 &&
               "bg-yellow-100"
-            }`}
+            } ${!additionalInfo1 && "bg-red-100"}`}
             onChange={(e) => setAdditionalInfo1(e.target.value)}
           />
         </div>
@@ -206,10 +207,11 @@ export default function UpdatePrint(props) {
             id="additionalInfo2"
             type="text"
             defaultValue={props.painting.additionalInfo[1]}
-            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
               additionalInfo2 != props.painting.additionalInfo[1] &&
+              additionalInfo2 &&
               "bg-yellow-100"
-            }`}
+            } ${!additionalInfo2 && "bg-red-100"}`}
             onChange={(e) => setAdditionalInfo2(e.target.value)}
           />
         </div>
@@ -221,9 +223,11 @@ export default function UpdatePrint(props) {
             id="printedArea"
             type="text"
             defaultValue={props.painting.printedArea}
-            className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
-              printedArea != props.painting.printedArea && "bg-yellow-100"
-            }`}
+            className={`w-[275px] rounded-sm border border-gray-500 px-1 transition duration-500 ${
+              printedArea != props.painting.printedArea &&
+              printedArea &&
+              "bg-yellow-100"
+            } ${!printedArea && "bg-red-100"}`}
             onChange={(e) => setPrintedArea(e.target.value)}
           />
         </div>
@@ -236,13 +240,15 @@ export default function UpdatePrint(props) {
             type="text"
             defaultValue={props.painting.printSize}
             className={`w-[275px] rounded-sm border border-gray-500 px-1 ${
-              printSize != props.painting.printSize && "bg-yellow-100"
-            }`}
+              printSize != props.painting.printSize &&
+              printSize &&
+              "bg-yellow-100"
+            } ${!printSize && "bg-red-100"}`}
             onChange={(e) => setPrintSize(e.target.value)}
           />
         </div>
         <div
-          className={`flex justify-between ${
+          className={`flex justify-between rounded-lg transition duration-500 ${
             image != props.painting.image && "bg-yellow-100"
           }`}
         >
@@ -279,8 +285,8 @@ export default function UpdatePrint(props) {
             }}
           />
           <div
-            className={`overflow-hiddenrounded-lg flex h-16 w-16 justify-center ${
-              image === null && "bg-red-100"
+            className={`flex h-16 w-16 justify-center overflow-hidden rounded-lg ${
+              !image && "bg-red-100"
             }`}
           >
             {image != null && (
@@ -309,9 +315,9 @@ export default function UpdatePrint(props) {
             id="qty"
             type="number"
             defaultValue={props.painting.qty}
-            className={`w-24 rounded-sm border border-gray-500 px-1 ${
-              qty != props.painting.qty && "bg-yellow-100"
-            }`}
+            className={`w-24 rounded-sm border border-gray-500 px-1 transition duration-500 ${
+              qty != props.painting.qty && qty && "bg-yellow-100"
+            } ${!qty && "bg-red-100"}`}
             onChange={(e) => {
               setQty(e.target.value);
             }}

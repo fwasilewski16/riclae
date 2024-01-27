@@ -194,8 +194,8 @@ export default function AddPrint(props) {
             }}
           />
           <div
-            className={`flex h-16 w-16 justify-center rounded-lg transition duration-500 ${
-              image === null && "bg-red-100"
+            className={`flex h-16 w-16 justify-center rounded-lg ${
+              !image && "bg-red-100"
             }`}
           >
             {image != null && (
