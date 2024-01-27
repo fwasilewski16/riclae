@@ -4,11 +4,15 @@ import useFetchPaintings from "../hooks/useFetchPaintings";
 function Painting(props) {
   return (
     <div className="my-4 flex h-24 items-center justify-between rounded-lg bg-white pr-8">
-      <div className="flex items-center gap-4">
+      <div className="flex w-1/2 items-center gap-4">
         <div className="min-w-[100px]">
           <img src={props.image} className="mx-auto h-20 rounded-lg border" />
         </div>
         <p className="text-xl font-thin tracking-wider">{props.name}</p>
+      </div>
+      <div className="flex gap-4">
+        <p className="font-thin tracking-wider">Remaining:</p>
+        <p className="font-thin tracking-wider">{props.qty}</p>
       </div>
       <div className="flex gap-8">
         <button className="w-24 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg">
@@ -55,6 +59,7 @@ export default function AdminPaintings() {
                 image={painting.images[0]}
                 _id={painting._id}
                 type={painting.type}
+                qty={painting.qty}
               />
             ))}
           </div>
@@ -69,6 +74,7 @@ export default function AdminPaintings() {
                 image={painting.image}
                 _id={painting._id}
                 type={painting.type}
+                qty={painting.qty}
               />
             ))}
           </div>
