@@ -1,12 +1,15 @@
 import { NavLink, useLocation } from "react-router-dom";
 import menuIcon from "../assets/icons/menu.png";
+import { useState } from "react";
 
 export default function Navbar() {
   const location = useLocation();
 
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+
   return (
     <div
-      className={`absolute left-0 right-0 top-0 flex h-20 justify-center bg-[#FAF2F5] transition duration-500 ${
+      className={`fixed left-0 right-0 top-0 z-50 flex h-20 justify-center bg-[#FAF2F5] transition duration-500 ${
         location.pathname === "/" && "opacity- -translate-y-20"
       }`}
     >
