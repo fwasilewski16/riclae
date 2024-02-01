@@ -4,7 +4,6 @@ import facebook from "../../src/assets/icons/facebook.png";
 import instagram from "../../src/assets/icons/instagram.png";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Shop from "../components/Shop";
 
 export default function MainPage() {
   const [animation, setAnimation] = useState(false);
@@ -16,7 +15,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex h-[100dvh] flex-col lg:flex-row">
       <div
         className={`z-50 hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-screen lg:w-1/2 2xl:w-3/5 ${
           animation ? "" : "opacity-0"
@@ -48,38 +47,37 @@ export default function MainPage() {
       <div className="hidden items-center overflow-hidden lg:flex lg:h-screen lg:w-1/2 2xl:w-2/5">
         <img src={legs} className="w-full object-cover lg:min-h-screen" />
       </div>
-      <div className="relative flex h-[100dvh] flex-col justify-between lg:hidden">
-        <div className="back z-50 flex h-[10%] p-5">
+      <div className="flex h-full flex-col lg:hidden">
+        <div className="flex h-[15%] items-center justify-center">
           <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
         </div>
-        <div className="absolute h-full overflow-hidden">
-          <img src={tan_lines} className="h-full object-cover" />
+        <div className="flex h-[70%] items-center overflow-hidden px-5">
+          <img src={tan_lines} className="object-cover" />
         </div>
-        <div className="z-50 flex flex-col bg-[#FAF2F5]">
-          <div className="flex items-center justify-center gap-5">
+        <div className="flex h-[15%] flex-col justify-center gap-4">
+          <div className="flex justify-center gap-5">
             <NavLink
               to="/shop"
-              className="flex w-1/3 justify-center text-xl tracking-widest"
+              className="flex w-1/3 justify-center text-lg tracking-widest"
             >
               SHOP
             </NavLink>
             <NavLink
               to="/about"
-              className="flex w-1/3 justify-center text-xl tracking-widest"
+              className="flex w-1/3 justify-center text-lg tracking-widest"
             >
               ABOUT
             </NavLink>
-            <NavLink className="flex w-1/3 justify-center text-xl tracking-widest">
+            <NavLink className="flex w-1/3 justify-center text-lg tracking-widest">
               CONTACT
             </NavLink>
           </div>
-          {/* <div className="flex h-1/2 items-center justify-center gap-10">
-            <img className="h-7" src={facebook} />
-            <img className="h-7" src={instagram} />
-          </div> */}
+          <div className="flex justify-center gap-5">
+            <img className="h-5" src={facebook} />
+            <img className="h-5" src={instagram} />
+          </div>
         </div>
       </div>
-      <Shop />
     </div>
   );
 }
