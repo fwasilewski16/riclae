@@ -3,12 +3,19 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./pages/Root";
 import AdminPage from "./pages/AdminPage";
 import AdminUpdatePage from "./pages/AdminUpdatePage";
+import MainPage from "./pages/MainPage";
+import AboutPage from "./pages/AboutPage";
+import ShopPage from "./pages/ShopPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    children: [],
+    children: [
+      { path: "/", element: <MainPage /> },
+      { path: "/shop", element: <ShopPage /> },
+      { path: "/about", element: <AboutPage /> },
+    ],
   },
   {
     path: "/admin/",
