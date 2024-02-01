@@ -47,12 +47,12 @@ export default function MainPage() {
       <div className="hidden items-center overflow-hidden lg:flex lg:h-screen lg:w-1/2 2xl:w-2/5">
         <img src={legs} className="w-full object-cover lg:min-h-screen" />
       </div>
-      <div className="flex h-[100dvh] flex-col justify-between py-8 lg:hidden">
+      <div className="flex h-[100dvh] flex-col justify-between py-4 lg:hidden">
         <div className="flex items-center justify-center">
           <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
         </div>
         <div className="p-4">
-          <img src={green_hat} className="h-full shadow-lg" />
+          <img src={green_hat} className="h-full object-cover shadow-lg" />
         </div>
         <div className="flex flex-col justify-evenly gap-4">
           <div className="flex justify-center gap-5">
