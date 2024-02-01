@@ -52,7 +52,7 @@ export default function MainPage() {
           <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
         </div>
         <div className="p-4">
-          <img src={green_hat} className="h-full object-cover shadow-lg" />
+          <img src={green_hat} className="shadow-lg" />
         </div>
         <div className="flex flex-col justify-evenly gap-4">
           <div className="flex justify-center gap-5">
