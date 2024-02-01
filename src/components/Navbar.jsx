@@ -5,8 +5,8 @@ export default function Navbar() {
 
   return (
     <div
-      className={`absolute left-0 right-0 top-0 h-20 ${
-        location.pathname === "/" && "opacity-0"
+      className={`absolute left-0 right-0 top-0 hidden h-20 ${
+        location.pathname === "/" && "hidden"
       }`}
     >
       <div className="mx-auto flex h-full w-3/4 items-center justify-between">
