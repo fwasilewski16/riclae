@@ -15,7 +15,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className="flex h-screen flex-col lg:flex-row">
+    <div className="flex flex-col lg:h-screen lg:flex-row">
       <div
         className={`z-50 hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-screen lg:w-1/2 2xl:w-3/5 ${
           animation ? "" : "opacity-0"
@@ -51,9 +51,6 @@ export default function MainPage() {
         <div className="flex items-center justify-center">
           <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
         </div>
-        <div className="p-4">
-          <img src={green_hat} className="shadow-lg" />
-        </div>
         <div className="flex flex-col justify-evenly gap-4">
           <div className="flex justify-center gap-5">
             <NavLink to="/shop" className="text-lg tracking-widest">
@@ -63,6 +60,9 @@ export default function MainPage() {
               ABOUT
             </NavLink>
             <NavLink className="text-lg tracking-widest">CONTACT</NavLink>
+          </div>
+          <div className="p-8">
+            <img src={green_hat} className="" />
           </div>
           <div className="flex justify-center gap-5">
             <img className="h-5" src={facebook} />
