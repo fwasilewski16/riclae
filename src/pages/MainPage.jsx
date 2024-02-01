@@ -15,7 +15,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex h-screen flex-col lg:flex-row">
       <div
         className={`z-50 hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-screen lg:w-1/2 2xl:w-3/5 ${
           animation ? "" : "opacity-0"
