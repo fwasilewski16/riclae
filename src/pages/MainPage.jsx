@@ -10,9 +10,9 @@ export default function MainPage() {
   const [animationText, setAnimationText] = useState(false);
 
   return (
-    <div className="flex h-[100dvh] flex-col lg:flex-row">
+    <div className="flex h-[100dvh] flex-col bg-[#FAF2F5] lg:flex-row">
       <div
-        className={`hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-full lg:w-1/2 2xl:w-3/5 ${
+        className={`hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-full lg:min-w-[60%] ${
           animationText ? "" : "opacity-0"
         }`}
       >
@@ -20,19 +20,19 @@ export default function MainPage() {
         <div className="flex gap-1">
           <NavLink
             to="/shop"
-            className="relative flex w-32 justify-center text-lg tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
+            className="relative flex w-32 justify-center tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
           >
             SHOP
           </NavLink>
           <div className="h-full w-[1px] bg-black" />
           <NavLink
             to="/about"
-            className="relative flex w-32 justify-center text-lg tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-20 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
+            className="relative flex w-32 justify-center tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-20 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
           >
             ABOUT
           </NavLink>
           <div className="h-full w-[1px] bg-black" />
-          <NavLink className="relative flex w-32 justify-center text-lg tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-24 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100">
+          <NavLink className="relative flex w-32 justify-center tracking-widest after:absolute after:left-1/2 after:top-[110%] after:h-[1px] after:w-24 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100">
             CONTACT
           </NavLink>
         </div>
@@ -41,14 +41,14 @@ export default function MainPage() {
           <img className="h-5" src={instagram} />
         </div>
       </div>
-      <div className="hidden items-center overflow-hidden lg:flex lg:h-screen lg:w-1/2 2xl:w-2/5">
+      <div className="hidden items-center overflow-hidden lg:flex lg:h-screen xl:max-w-[40%]">
         <img
           src={legs}
           onLoad={() => {
             setAnimationImage(true);
             setTimeout(() => {
               setAnimationText(true);
-            }, 500);
+            }, 600);
           }}
           className={`w-full object-cover transition duration-500 lg:min-h-screen ${
             !animationImage && "opacity-0"
@@ -66,7 +66,7 @@ export default function MainPage() {
               setAnimationImage(true);
               setTimeout(() => {
                 setAnimationText(true);
-              }, 500);
+              }, 600);
             }}
             className={`object-cover transition duration-500 ${
               !animationImage && "opacity-0"
@@ -81,19 +81,19 @@ export default function MainPage() {
           <div className="flex w-full max-w-[542px]">
             <NavLink
               to="/shop"
-              className="flex w-1/3 justify-center text-lg tracking-widest"
+              className="flex w-1/3 justify-center tracking-widest"
             >
               SHOP
             </NavLink>
             <div className="h-full w-[1px] bg-black" />
             <NavLink
               to="/about"
-              className="flex w-1/3 justify-center text-lg tracking-widest"
+              className="flex w-1/3 justify-center tracking-widest"
             >
               ABOUT
             </NavLink>
             <div className="h-full w-[1px] bg-black" />
-            <NavLink className="flex w-1/3 justify-center text-lg tracking-widest">
+            <NavLink className="flex w-1/3 justify-center tracking-widest">
               CONTACT
             </NavLink>
           </div>

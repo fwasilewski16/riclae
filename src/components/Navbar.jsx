@@ -1,25 +1,26 @@
 import { NavLink, useLocation } from "react-router-dom";
+import menuIcon from "../assets/icons/menu.png";
 
 export default function Navbar() {
   const location = useLocation();
 
   return (
     <div
-      className={`absolute left-0 right-0 top-0 hidden h-20 ${
-        location.pathname === "/" && "hidden"
+      className={`absolute left-0 right-0 top-0 flex h-20 justify-center bg-[#FAF2F5] transition duration-500 ${
+        location.pathname === "/" && "opacity- -translate-y-20"
       }`}
     >
-      <div className="mx-auto flex h-full w-3/4 items-center justify-between">
+      <div className="flex h-full w-full items-center justify-between px-6 lg:w-3/4 lg:px-0">
         <NavLink
           to="/"
-          className="w-1/3 pb-2 text-5xl font-thin tracking-widest"
+          className="w-1/3 pb-2 text-4xl font-thin tracking-widest"
         >
           RICLAE
         </NavLink>
-        <div className="flex w-1/3">
+        <div className="hidden md:flex">
           <NavLink
             to="/shop"
-            className="flex h-20 w-36 items-center justify-center"
+            className="flex h-20 w-24 items-center justify-center lg:w-36"
           >
             <div
               className={`relative tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
@@ -33,7 +34,7 @@ export default function Navbar() {
           </NavLink>
           <NavLink
             to="/about"
-            className="flex h-20 w-36 items-center justify-center"
+            className="flex h-20 w-24 items-center justify-center lg:w-36"
           >
             <div
               className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
@@ -45,7 +46,7 @@ export default function Navbar() {
               ABOUT
             </div>
           </NavLink>
-          <NavLink className="flex h-20 w-36 items-center justify-center">
+          <NavLink className="flex h-20 w-24 items-center justify-center lg:w-36">
             <div
               className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
                 location.pathname === "/contact"
@@ -57,11 +58,12 @@ export default function Navbar() {
             </div>
           </NavLink>
         </div>
-        <div className="w-1/3">
-          <div className="flex justify-end">
-            <p className="tracking-widest">CART</p>
-            <p className="ml-1">( 0 )</p>
-          </div>
+        <div className="hidden w-1/3 justify-end md:flex">
+          <p className="tracking-widest">CART</p>
+          <p className="ml-1">( 0 )</p>
+        </div>
+        <div className="flex h-1/2 w-full justify-end md:hidden">
+          <img src={menuIcon} />
         </div>
       </div>
     </div>
