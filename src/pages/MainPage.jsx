@@ -41,7 +41,7 @@ export default function MainPage() {
           <img className="h-5" src={instagram} />
         </div>
       </div>
-      <div className="hidden items-center overflow-hidden lg:flex lg:h-screen xl:max-w-[40%]">
+      <div className="hidden items-center overflow-hidden lg:flex lg:w-[40%]">
         <img
           src={legs}
           onLoad={() => {

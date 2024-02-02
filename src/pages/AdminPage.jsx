@@ -14,7 +14,7 @@ export default function AdminPage() {
       <div className="flex h-screen items-center justify-center bg-[#faf2f5] p-6">
         <button
           onClick={() => loginWithRedirect()}
-          className="h-10 w-28 rounded-lg bg-blue-500 text-lg tracking-widest text-white"
+          className="h-10 w-28 rounded-lg bg-sky-500 text-lg tracking-widest text-white"
         >
           LOG IN
         </button>

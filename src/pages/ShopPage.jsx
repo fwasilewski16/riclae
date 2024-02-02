@@ -7,17 +7,8 @@ export default function ShopPage() {
 
   const [originals, prints, loading, error] = useFetchPaintings();
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-  }, [paintingType]);
-
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center bg-[#FAF2F5]">
+    <div className="flex min-h-[calc(100dvh-124px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
       <div className="flex justify-center">
         <div className="mb-8 mt-20 flex w-screen items-center justify-center gap-4 border-b border-t border-black px-4 py-1">
           <button
@@ -54,12 +45,12 @@ export default function ShopPage() {
           </button>
         </div>
       </div>
-      {(loading || isLoading) && (
+      {loading && (
         <div className="flex h-44 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
         </div>
       )}
-      {!loading && !isLoading && paintingType === "ALL" && (
+      {!loading && paintingType === "ALL" && (
         <div className="flex max-w-[900px] flex-wrap lg:max-w-[1400px]">
           {[...prints, ...originals].map((painting) => (
             <PaintingSingle
@@ -68,28 +59,34 @@ export default function ShopPage() {
                 painting.type === "print" ? painting.image : painting.images[0]
               }
               type={painting.type}
+              name={painting.name}
+              price={painting.price}
             />
           ))}
         </div>
       )}
-      {!loading && !isLoading && paintingType === "PRINTS" && (
+      {!loading && paintingType === "PRINTS" && (
         <div className="flex max-w-[700px] flex-wrap lg:max-w-[1200px]">
           {prints.map((painting) => (
             <PaintingSingle
               key={painting._id}
               image={painting.image}
               type={painting.type}
+              name={painting.name}
+              price={painting.price}
             />
           ))}
         </div>
       )}
-      {!loading && !isLoading && paintingType === "ORIGINALS" && (
+      {!loading && paintingType === "ORIGINALS" && (
         <div className="flex max-w-[700px] flex-wrap lg:max-w-[1200px]">
           {originals.map((painting) => (
             <PaintingSingle
               key={painting._id}
               image={painting.images[0]}
               type={painting.type}
+              name={painting.name}
+              price={painting.price}
             />
           ))}
         </div>

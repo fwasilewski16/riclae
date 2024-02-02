@@ -11,16 +11,16 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div
-      className={`flex min-h-screen justify-center pt-16 transition duration-700 ${
-        animation ? "" : "opacity-0"
-      }`}
-    >
-      <div className="flex w-3/4 flex-col items-center justify-center">
+    <div className="flex min-h-[calc(100dvh-124px)] justify-center bg-[#FAF2F5] pt-16 ">
+      <div
+        className={`flex w-3/4 flex-col items-center justify-center transition duration-700 ${
+          animation ? "" : "opacity-0"
+        }`}
+      >
         <div className="flex justify-center pb-5">
           <h1 className="text-4xl font-thin tracking-widest">ABOUT</h1>
         </div>
-        <div className="my-5 flex w-1/2 flex-col items-center gap-5">
+        <div className="my-5 flex w-1/2 flex-col items-center gap-9">
           <p className="tracking-wider">Hello!</p>
           <p className="text-center tracking-wider">
             My name is Claire Michaud and I'm a VFX artist who goes by Riclae
