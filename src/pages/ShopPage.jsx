@@ -10,7 +10,7 @@ export default function ShopPage() {
   return (
     <div className="flex min-h-[calc(100dvh-124px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
       <div className="flex justify-center">
-        <div className="mb-8 mt-20 flex w-screen items-center justify-center gap-4 border-b border-t border-black px-4 py-1">
+        <div className="mb-8 mt-20 flex w-screen items-center justify-center gap-4 border-b border-t border-black px-4 py-[1px]">
           <button
             onClick={() => {
               setPaintingType("ALL");
@@ -61,6 +61,7 @@ export default function ShopPage() {
               type={painting.type}
               name={painting.name}
               price={painting.price}
+              id={painting.id}
             />
           ))}
         </div>
@@ -74,6 +75,7 @@ export default function ShopPage() {
               type={painting.type}
               name={painting.name}
               price={painting.price}
+              id={painting.id}
             />
           ))}
         </div>

@@ -7,7 +7,7 @@ export default function Footer() {
 
   if (location.pathname != "/") {
     return (
-      <div className="flex w-full justify-center gap-5 bg-[#FAF2F5] pb-6 pt-20">
+      <div className="flex w-full justify-center gap-5 bg-[#FAF2F5] py-6">
         <img className="h-5" src={facebook} />
         <img className="h-5" src={instagram} />
       </div>

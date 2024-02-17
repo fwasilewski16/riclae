@@ -6,6 +6,7 @@ import AdminUpdatePage from "./pages/AdminUpdatePage";
 import MainPage from "./pages/MainPage";
 import AboutPage from "./pages/AboutPage";
 import ShopPage from "./pages/ShopPage";
+import PaintingPage from "./pages/PaintingPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <MainPage /> },
       { path: "/shop", element: <ShopPage /> },
+      { path: "/shop/:type/:id", element: <PaintingPage /> },
       { path: "/about", element: <AboutPage /> },
     ],
   },

@@ -1,0 +1,85 @@
+import { useParams } from "react-router-dom";
+import useFetchSinglePainting from "../hooks/useFetchSinglePainting";
+
+export default function PaintingPage() {
+  const { type, id } = useParams();
+  const [painting, loading, error] = useFetchSinglePainting(type, id);
+
+  return (
+    <div className="mt-20 flex min-h-[calc(100dvh-124px)] justify-center bg-[#FAF2F5]">
+      {loading && (
+        <div className="flex h-80 items-end">
+          <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
+        </div>
+      )}
+      {!loading && painting && painting.type === "print" && (
+        <div className="flex w-screen flex-col items-center md:flex-row">
+          <div className="flex h-full items-center px-6 md:w-1/2 md:justify-end md:px-0">
+            <img className="object-cover md:h-[800px]" src={painting.image} />
+          </div>
+          <div className="my-6 flex h-full flex-col justify-center gap-4 px-6 md:w-1/2 md:px-20">
+            <p className="text-2xl font-thin tracking-widest md:text-4xl">
+              {painting.name}
+            </p>
+            <p className="text-lg font-thin tracking-widest md:text-2xl">
+              £{painting.price}
+            </p>
+            <div>
+              {painting.additionalInfo.map((info) => (
+                <p className="text-lg font-thin tracking-widest">{info}</p>
+              ))}
+            </div>
+            <div>
+              <p className="text-lg font-thin tracking-widest">
+                Printed Area - {painting.printedArea}
+              </p>
+              <p className="text-lg font-thin tracking-widest">
+                Print Size - {painting.printSize}
+              </p>
+            </div>
+            {painting.numberedSigned && (
+              <p className="text-lg font-thin tracking-widest">
+                Numbered and signed
+              </p>
+            )}
+            <button className="w-fit bg-black px-4 py-3 font-thin tracking-widest text-white">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      )}
+      {!loading && painting && painting.type === "original" && (
+        <div className="flex w-screen pt-9">
+          <div className="flex h-full w-1/2 flex-col items-end gap-16">
+            {painting.images.map((image) => (
+              <img className="h-[700px]" src={image} />
+            ))}
+          </div>
+          <div className="flex h-[700px] w-1/2 flex-col justify-center gap-4 pl-20">
+            <p className="text-4xl font-thin tracking-widest">
+              {painting.name}
+            </p>
+            <p className="text-2xl font-thin tracking-widest">
+              £{painting.price}
+            </p>
+            <p className="text-lg font-thin tracking-widest">{painting.year}</p>
+            <div>
+              {painting.additionalInfo.map((info) => (
+                <p className="text-lg font-thin tracking-widest">{info}</p>
+              ))}
+            </div>
+            <p className="text-lg font-thin tracking-widest">{painting.size}</p>
+            {painting.numberedSigned && (
+              <p className="text-lg font-thin tracking-widest">
+                Numbered and signed
+              </p>
+            )}
+            <button className="w-fit bg-black px-4 py-3 font-thin tracking-widest text-white">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

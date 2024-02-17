@@ -7,6 +7,7 @@ export default function PaintingSingle(props) {
 
   return (
     <NavLink
+      to={`/shop/${props.type}/${props.id}`}
       onMouseOver={() => {
         setTextAnimation(true);
       }}

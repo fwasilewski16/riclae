@@ -16,9 +16,7 @@ function Painting(props) {
       </div>
       <div className="flex gap-8">
         <button className="w-24 rounded-lg bg-sky-500 text-lg tracking-widest text-white shadow-lg">
-          <NavLink to={`/admin/update/${props.type}/${props._id}`}>
-            EDIT
-          </NavLink>
+          <NavLink to={`/admin/update/${props.type}/${props.id}`}>EDIT</NavLink>
         </button>
       </div>
     </div>
@@ -57,7 +55,7 @@ export default function AdminPaintings() {
                 name={painting.name}
                 key={painting._id}
                 image={painting.images[0]}
-                _id={painting._id}
+                id={painting.id}
                 type={painting.type}
                 qty={painting.qty}
               />
@@ -72,7 +70,7 @@ export default function AdminPaintings() {
                 name={painting.name}
                 key={painting._id}
                 image={painting.image}
-                _id={painting._id}
+                id={painting.id}
                 type={painting.type}
                 qty={painting.qty}
               />
