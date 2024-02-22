@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="flex justify-center pb-5">
           <h1 className="text-4xl font-thin tracking-widest">ABOUT</h1>
         </div>
-        <div className="my-5 flex w-1/2 flex-col items-center gap-9">
+        <div className="my-5 flex flex-col items-center gap-9">
           <p className="tracking-wider">Hello!</p>
           <p className="text-center tracking-wider">
             My name is Claire Michaud and I'm a VFX artist who goes by Riclae

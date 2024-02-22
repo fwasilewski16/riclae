@@ -16,7 +16,10 @@ export default function MobileMenu(props) {
         !menuVisible && "opacity-0"
       }`}
     >
-      <div className="flex h-20 w-full justify-end">
+      <div className="flex h-20 w-full justify-between bg-[#FAF2F5] pl-6">
+        <p className="flex h-20 items-center justify-center  tracking-widest">
+          CART ( 0 )
+        </p>
         <div
           onClick={() => {
             setMenuVisible(false);
@@ -30,17 +33,54 @@ export default function MobileMenu(props) {
           <div className="h-full w-[2px] -rotate-45 rounded-lg bg-black" />
         </div>
       </div>
-      <NavLink className="flex h-20 items-center justify-center text-2xl tracking-widest">
+      <div className="mt-10 h-[1px] w-1/2 bg-black" />
+      <NavLink
+        to="/shop"
+        onClick={() => {
+          setMenuVisible(false);
+          setTimeout(() => {
+            props.setMobileMenuVisible(false);
+          }, 500);
+        }}
+        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+      >
         SHOP
       </NavLink>
-      <div className="h-[1px] w-1/2 bg-black" />
-      <NavLink className="flex h-20 items-center justify-center text-2xl tracking-widest">
+      <div
+        onClick={() => {
+          setMenuVisible(false);
+          setTimeout(() => {
+            props.setMobileMenuVisible(false);
+          }, 500);
+        }}
+        className="h-[1px] w-1/2 bg-black"
+      />
+      <NavLink
+        to="/about"
+        onClick={() => {
+          setMenuVisible(false);
+          setTimeout(() => {
+            props.setMobileMenuVisible(false);
+          }, 500);
+        }}
+        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+      >
         ABOUT
       </NavLink>
       <div className="h-[1px] w-1/2 bg-black" />
-      <NavLink className="flex h-20 items-center justify-center text-2xl tracking-widest">
+      <NavLink
+        onClick={() => {
+          setMenuVisible(false);
+          setTimeout(() => {
+            props.setMobileMenuVisible(false);
+          }, 500);
+        }}
+        to="/contact"
+        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+      >
         CONTACT
       </NavLink>
+      <div className="h-[1px] w-1/2 bg-black" />
     </div>
   );
 }
