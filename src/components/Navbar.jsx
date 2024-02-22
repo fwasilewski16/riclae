@@ -8,19 +8,19 @@ export default function Navbar() {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   return (
-    <div
-      className={`h-[64px]] z-40 flex justify-center bg-[#FAF2F5] py-4 transition duration-500 ${
-        location.pathname === "/" ? "-translate-y-[64px]" : "translate-y-0"
-      }`}
-    >
-      <div className="flex h-full w-full items-center justify-between px-6 lg:w-3/4 lg:px-0">
+    <div className="z-40 flex min-h-[80px] justify-center py-4">
+      <div className="relative flex min-h-full w-full items-center justify-end px-6 lg:w-3/4 lg:px-0">
         <NavLink
           to="/"
-          className="w-1/3 text-3xl font-thin tracking-widest lg:pb-2 lg:text-4xl"
+          className={`${
+            location.pathname === "/"
+              ? "left-1/2 -translate-x-1/2"
+              : "left-6 translate-x-0"
+          } absolute text-4xl font-thin tracking-widest transition-all duration-500`}
         >
           RICLAE
         </NavLink>
-        <div className="hidden md:flex">
+        <div className="ml- hidden w-1/3 md:flex">
           <NavLink
             to="/shop"
             className="flex h-full w-24 items-center justify-center lg:w-36"
@@ -65,8 +65,14 @@ export default function Navbar() {
           <p className="tracking-widest">CART</p>
           <p className="ml-1">( 0 )</p>
         </div>
-        <div className="flex h-1/2 w-full justify-end md:hidden">
-          <img src={menuIcon} className="h-[40px]" />
+        <div
+          className={`absolute flex min-h-[48px] w-12 flex-col justify-center transition-all duration-500 ${
+            location.pathname === "/" ? "-right-12" : "right-6"
+          } md:hidden `}
+        >
+          <div className="h-[2px] w-11 bg-black" />
+          <div className="my-[11px] h-[2px] w-11 bg-black" />
+          <div className="h-[2px] w-11 bg-black" />
         </div>
       </div>
     </div>

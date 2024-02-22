@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./pages/Root";
 import AdminPage from "./pages/AdminPage";
 import AdminUpdatePage from "./pages/AdminUpdatePage";
-import MainPage from "./pages/MainPage";
+import WelcomePage from "./pages/WelcomePage";
 import AboutPage from "./pages/AboutPage";
 import ShopPage from "./pages/ShopPage";
 import PaintingPage from "./pages/PaintingPage";
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      { path: "/", element: <MainPage /> },
+      { path: "/", element: <WelcomePage /> },
       { path: "/shop", element: <ShopPage /> },
       { path: "/shop/:type/:id", element: <PaintingPage /> },
       { path: "/about", element: <AboutPage /> },

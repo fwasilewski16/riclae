@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useFetchPaintings from "../hooks/useFetchPaintings";
 import PaintingSingle from "../components/PaintingSingle";
 
@@ -11,7 +11,6 @@ export default function ShopPage() {
     <div className="flex min-h-[calc(100dvh-124px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
       <div className="flex justify-center">
         <div className="mb-8 flex w-screen items-center justify-center gap-4 px-4 py-[1px] pt-4">
-          <p className="text-2xl">/</p>
           <button
             onClick={() => {
               setPaintingType("ALL");
@@ -44,7 +43,6 @@ export default function ShopPage() {
           >
             ORIGINALS
           </button>
-          <p className="text-2xl">/</p>
         </div>
       </div>
       {loading && (
