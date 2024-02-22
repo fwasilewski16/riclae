@@ -1,6 +1,26 @@
 import { NavLink, useLocation } from "react-router-dom";
-import menuIcon from "../assets/icons/menu.png";
 import { useState } from "react";
+import NavbarMenuButton from "../UI/NavbarMenuButton";
+import MobileMenu from "../UI/MobileMenu";
+
+function NavbarButton(props) {
+  return (
+    <NavLink
+      to={props.to}
+      className="flex h-full w-24 items-center justify-center lg:w-36"
+    >
+      <div
+        className={`relative tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
+          location.pathname === props.to
+            ? "after:top-[100%] after:w-full"
+            : "after:top-[100%] after:w-full after:opacity-0"
+        }`}
+      >
+        {props.children}
+      </div>
+    </NavLink>
+  );
+}
 
 export default function Navbar() {
   const location = useLocation();
@@ -11,7 +31,7 @@ export default function Navbar() {
     <div
       className={`${
         location.pathname === "/" ? "flex lg:hidden" : "flex"
-      } min-h-[80px] justify-center py-4`}
+      } min-h-20 justify-center py-4`}
     >
       <div className="relative flex min-h-full w-full items-center justify-end overflow-x-hidden px-6 lg:w-3/4 lg:px-0">
         <NavLink
@@ -29,45 +49,9 @@ export default function Navbar() {
             location.pathname === "/" ? "hidden" : "hidden md:flex"
           } w-1/3 `}
         >
-          <NavLink
-            to="/shop"
-            className="flex h-full w-24 items-center justify-center lg:w-36"
-          >
-            <div
-              className={`relative tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
-                location.pathname === "/shop"
-                  ? "after:top-[100%] after:w-full"
-                  : "after:top-[100%] after:w-full after:opacity-0"
-              }`}
-            >
-              SHOP
-            </div>
-          </NavLink>
-          <NavLink
-            to="/about"
-            className="flex h-full w-24 items-center justify-center lg:w-36"
-          >
-            <div
-              className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
-                location.pathname === "/about"
-                  ? "after:top-[100%] after:w-full"
-                  : "after:top-[100%] after:w-full after:opacity-0"
-              }`}
-            >
-              ABOUT
-            </div>
-          </NavLink>
-          <NavLink className="flex h-full w-24 items-center justify-center lg:w-36">
-            <div
-              className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
-                location.pathname === "/contact"
-                  ? "after:top-[100%] after:w-full"
-                  : "after:top-[100%] after:w-full after:opacity-0"
-              }`}
-            >
-              CONTACT
-            </div>
-          </NavLink>
+          <NavbarButton to="/shop">SHOP</NavbarButton>
+          <NavbarButton to="/about">ABOUT</NavbarButton>
+          <NavbarButton to="/contact">CONTACT</NavbarButton>
         </div>
         <div
           className={`hidden w-1/3 justify-end ${
@@ -77,16 +61,11 @@ export default function Navbar() {
           <p className="tracking-widest">CART</p>
           <p className="ml-1">( 0 )</p>
         </div>
-        <div
-          className={`absolute flex min-h-[48px] w-12 flex-col justify-center transition-all duration-500 ${
-            location.pathname === "/" ? "-right-12" : "right-6"
-          } md:hidden `}
-        >
-          <div className="h-[2px] w-10 bg-black" />
-          <div className="my-[10px] h-[2px] w-10 bg-black" />
-          <div className="h-[2px] w-10 bg-black" />
-        </div>
+        <NavbarMenuButton setMobileMenuVisible={setMobileMenuVisible} />
       </div>
+      {mobileMenuVisible && (
+        <MobileMenu setMobileMenuVisible={setMobileMenuVisible} />
+      )}
     </div>
   );
 }
