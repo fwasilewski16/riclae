@@ -10,7 +10,7 @@ export default function MainPage() {
   const [animationText, setAnimationText] = useState(false);
 
   return (
-    <div className="flex h-[100dvh] flex-col bg-[#FAF2F5] lg:flex-row">
+    <div className="absolute bottom-0 left-0 right-0 top-0 flex flex-col bg-[#FAF2F5] lg:flex-row">
       <div
         className={`hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-full lg:min-w-[60%] ${
           animationText ? "" : "opacity-0"
@@ -56,8 +56,10 @@ export default function MainPage() {
         />
       </div>
       <div className="flex h-full flex-col lg:hidden">
-        <div className="flex h-[15%] items-center justify-center">
-          <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
+        <div className="flex h-[10%] items-center justify-center">
+          <h2 className="text-4xl font-thin tracking-widest md:text-5xl">
+            RICLAE
+          </h2>
         </div>
         <div className="my-2 flex h-[70%] items-center justify-center overflow-hidden px-5">
           <img
@@ -74,32 +76,32 @@ export default function MainPage() {
           />
         </div>
         <div
-          className={`flex h-[15%] w-full flex-col items-center justify-center gap-4 transition duration-500 ${
+          className={`flex h-[20%] w-full flex-col items-center justify-center gap-6 transition duration-500 ${
             !animationText && "opacity-0"
           }`}
         >
           <div className="flex w-full max-w-[542px]">
             <NavLink
               to="/shop"
-              className="flex w-1/3 justify-center tracking-widest"
+              className="flex w-1/3 justify-center tracking-widest md:text-xl"
             >
               SHOP
             </NavLink>
             <div className="h-full w-[1px] bg-black" />
             <NavLink
               to="/about"
-              className="flex w-1/3 justify-center tracking-widest"
+              className="flex w-1/3 justify-center tracking-widest md:text-xl"
             >
               ABOUT
             </NavLink>
             <div className="h-full w-[1px] bg-black" />
-            <NavLink className="flex w-1/3 justify-center tracking-widest">
+            <NavLink className="flex w-1/3 justify-center tracking-widest md:text-xl">
               CONTACT
             </NavLink>
           </div>
           <div className="flex justify-center gap-5">
-            <img className="h-5" src={facebook} />
-            <img className="h-5" src={instagram} />
+            <img className="h-6" src={facebook} />
+            <img className="h-6" src={instagram} />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function PaintingPage() {
   const [painting, loading, error] = useFetchSinglePainting(type, id);
 
   return (
-    <div className="mt-20 flex min-h-[calc(100dvh-124px)] justify-center bg-[#FAF2F5]">
+    <div className="flex min-h-[calc(100dvh-80px)] justify-center bg-[#FAF2F5]">
       {loading && (
         <div className="flex h-80 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>

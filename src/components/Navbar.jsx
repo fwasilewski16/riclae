@@ -9,21 +9,21 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed left-0 right-0 top-0 z-50 flex h-20 justify-center bg-[#FAF2F5] transition duration-500 ${
-        location.pathname === "/" && "opacity- -translate-y-20"
+      className={`h-[64px]] z-40 flex justify-center bg-[#FAF2F5] py-4 transition duration-500 ${
+        location.pathname === "/" ? "-translate-y-[64px]" : "translate-y-0"
       }`}
     >
       <div className="flex h-full w-full items-center justify-between px-6 lg:w-3/4 lg:px-0">
         <NavLink
           to="/"
-          className="w-1/3 pb-2 text-4xl font-thin tracking-widest"
+          className="w-1/3 text-3xl font-thin tracking-widest lg:pb-2 lg:text-4xl"
         >
           RICLAE
         </NavLink>
         <div className="hidden md:flex">
           <NavLink
             to="/shop"
-            className="flex h-20 w-24 items-center justify-center lg:w-36"
+            className="flex h-full w-24 items-center justify-center lg:w-36"
           >
             <div
               className={`relative tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
@@ -37,7 +37,7 @@ export default function Navbar() {
           </NavLink>
           <NavLink
             to="/about"
-            className="flex h-20 w-24 items-center justify-center lg:w-36"
+            className="flex h-full w-24 items-center justify-center lg:w-36"
           >
             <div
               className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
@@ -49,7 +49,7 @@ export default function Navbar() {
               ABOUT
             </div>
           </NavLink>
-          <NavLink className="flex h-20 w-24 items-center justify-center lg:w-36">
+          <NavLink className="flex h-full w-24 items-center justify-center lg:w-36">
             <div
               className={`relative mx-auto tracking-widest after:absolute after:-left-0 after:h-[1px] after:bg-black after:transition-all after:duration-700 ${
                 location.pathname === "/contact"
@@ -66,7 +66,7 @@ export default function Navbar() {
           <p className="ml-1">( 0 )</p>
         </div>
         <div className="flex h-1/2 w-full justify-end md:hidden">
-          <img src={menuIcon} />
+          <img src={menuIcon} className="h-[40px]" />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 export default function Root() {
   return (
-    <div className="">
+    <div className="bg-[#FAF2F5] ">
       <Navbar />
       <Outlet />
       <Footer />
