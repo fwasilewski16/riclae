@@ -36,9 +36,9 @@ export default function MainPage() {
   const [animationText, setAnimationText] = useState(false);
 
   return (
-    <div className="flex max-h-[calc(100dvh-72px)] min-h-[calc(100dvh-72px)] lg:flex-row">
+    <div className="flex max-h-[calc(100dvh-80px)] min-h-[calc(100dvh-80px)] lg:max-h-[100dvh] lg:min-h-[100dvh] lg:flex-row">
       <div
-        className={`hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:h-full lg:min-w-[60%] ${
+        className={`lg:h-min-full hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:min-w-[60%] ${
           animationText ? "" : "opacity-0"
         }`}
       >
@@ -69,8 +69,8 @@ export default function MainPage() {
           }`}
         />
       </div>
-      <div className="flex min-h-full w-full flex-col items-center justify-between py-2 lg:hidden">
-        <div className="flex h-[100%] items-center overflow-hidden px-8">
+      <div className="flex min-h-full w-full flex-col items-center justify-between lg:hidden">
+        <div className="flex h-[100%] items-center overflow-hidden px-8 py-4">
           <img
             src={tan_lines}
             onLoad={() => {
@@ -79,13 +79,13 @@ export default function MainPage() {
                 setAnimationText(true);
               }, 600);
             }}
-            className={`object-cover transition duration-500 ${
+            className={`min-h-full object-cover transition duration-500 ${
               !animationImage && "opacity-0"
             }`}
           />
         </div>
         <div
-          className={`flex h-[128px] w-full flex-col items-center justify-center gap-4 transition duration-500 ${
+          className={`flex w-full flex-col items-center justify-center gap-5 py-5 transition duration-500 ${
             !animationText && "opacity-0"
           }`}
         >
@@ -97,8 +97,8 @@ export default function MainPage() {
             <LinkMobile to={"/shop"}>CONTACT</LinkMobile>
           </div>
           <div className="flex justify-center gap-5">
-            <img className="h-6" src={facebook} />
-            <img className="h-6" src={instagram} />
+            <img className="h-5 md:h-6" src={facebook} />
+            <img className="h-5 md:h-6" src={instagram} />
           </div>
         </div>
       </div>

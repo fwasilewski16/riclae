@@ -8,9 +8,9 @@ export default function ShopPage() {
   const [originals, prints, loading, error] = useFetchPaintings();
 
   return (
-    <div className="flex min-h-[calc(100dvh-124px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
+    <div className="flex min-h-[calc(100dvh-140px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
       <div className="flex justify-center">
-        <div className="mb-8 flex w-screen items-center justify-center gap-4 px-4 py-[1px] pt-4">
+        <div className="mb-8 flex max-w-[100vw] items-center justify-center gap-4 px-6 py-[1px] pt-4">
           <button
             onClick={() => {
               setPaintingType("ALL");
@@ -51,7 +51,7 @@ export default function ShopPage() {
         </div>
       )}
       {!loading && paintingType === "ALL" && (
-        <div className="flex max-w-[900px] flex-wrap lg:max-w-[1400px]">
+        <div className="flex max-w-[700px] flex-wrap lg:max-w-[1400px]">
           {[...prints, ...originals].map((painting) => (
             <PaintingSingle
               key={painting._id}

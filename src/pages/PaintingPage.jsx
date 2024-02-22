@@ -13,11 +13,11 @@ export default function PaintingPage() {
         </div>
       )}
       {!loading && painting && painting.type === "print" && (
-        <div className="flex w-screen flex-col items-center md:flex-row">
-          <div className="flex h-full items-center px-6 md:w-1/2 md:justify-end md:px-0">
-            <img className="object-cover md:h-[800px]" src={painting.image} />
+        <div className="flex w-screen flex-col items-center justify-center py-5 lg:flex-row lg:py-0">
+          <div className="flex h-full max-w-[700px] items-center px-5 lg:max-h-[calc(100dvh-80px)] lg:w-1/2 lg:max-w-full lg:justify-center lg:py-5">
+            <img className="h-full object-cover" src={painting.image} />
           </div>
-          <div className="my-6 flex h-full flex-col justify-center gap-4 px-6 md:w-1/2 md:px-20">
+          <div className="my-6 flex h-full w-full max-w-[700px] flex-col justify-center gap-6 px-5 lg:w-1/2 lg:px-5">
             <p className="text-2xl font-thin tracking-widest md:text-4xl">
               {painting.name}
             </p>
