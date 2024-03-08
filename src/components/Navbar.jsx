@@ -58,8 +58,10 @@ export default function Navbar() {
             location.pathname === "/" ? "hidden" : "md:flex"
           }`}
         >
-          <p className="tracking-widest">CART</p>
-          <p className="ml-1">( 0 )</p>
+          <NavLink to="/cart" className="flex tracking-widest">
+            <p>CART</p>
+            <p className="ml-1">( 0 )</p>
+          </NavLink>
         </div>
         <NavbarMenuButton setMobileMenuVisible={setMobileMenuVisible} />
       </div>
