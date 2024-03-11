@@ -13,11 +13,9 @@ export default function PaintingPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (!loading) {
-      setTimeout(() => {
-        setFadeIn(true);
-      }, 300);
-    }
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 300);
   }, [loading]);
 
   return (

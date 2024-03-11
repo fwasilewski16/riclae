@@ -4,12 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function PaintingSingle(props) {
   const [fadeIn, setFadeIn] = useState(false);
   const [textAnimation, setTextAnimation] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setFadeIn(true);
-    }, 10);
-  }, []);
+  const [overlayDiabled, setOverlayDisabled] = useState(true);
 
   return (
     <NavLink
@@ -28,9 +23,21 @@ export default function PaintingSingle(props) {
           className={`h-full transition duration-700 ${
             fadeIn ? "" : "-translate-y-1 opacity-0"
           }`}
+          onLoad={() => {
+            setTimeout(() => {
+              setFadeIn(true);
+            }, 100);
+            setTimeout(() => {
+              setOverlayDisabled(false);
+            }, 600);
+          }}
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 top-0 hidden opacity-0 transition duration-500 group-hover:opacity-100 lg:block">
+      <div
+        className={`absolute bottom-0 left-0 right-0 top-0 hidden opacity-0 transition duration-500 ${
+          !overlayDiabled && "group-hover:opacity-100"
+        } lg:block`}
+      >
         <div
           className={`absolute bottom-0 left-0 right-0 top-0 bg-black opacity-50 ${
             fadeIn ? "" : "hidden"
