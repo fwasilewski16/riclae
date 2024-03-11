@@ -3,16 +3,22 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../store";
 import useFetchSinglePainting from "../hooks/useFetchSinglePainting";
 import OriginalCarousel from "../components/OriginalCarousel";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function PaintingPage() {
   const dispatch = useDispatch();
   const { type, id } = useParams();
+  const [fadeIn, setFadeIn] = useState(false);
   const [painting, loading, error] = useFetchSinglePainting(type, id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    if (!loading) {
+      setTimeout(() => {
+        setFadeIn(true);
+      }, 300);
+    }
+  }, [loading]);
 
   return (
     <div className="flex min-h-[calc(100dvh-80px)] justify-center">
@@ -24,16 +30,22 @@ export default function PaintingPage() {
       {!loading && painting && (
         <div className="flex w-screen flex-col items-center justify-center lg:flex-row">
           <div
-            className={`flex h-full max-w-[700px] items-center ${
+            className={`flex h-full max-w-[700px] items-center transition duration-700 ${
               painting.type === "print" && "px-5"
-            } lg:max-h-[calc(100dvh-80px)] lg:w-1/2 lg:max-w-[100dvw] lg:justify-end lg:py-5`}
+            } lg:max-h-[calc(100dvh-80px)] lg:w-1/2 lg:max-w-[100dvw] lg:justify-end lg:py-5 ${
+              fadeIn ? "" : "-translate-y-1 opacity-0"
+            }`}
           >
             {<img className="max-h-full object-cover" src={painting.image} />}
             {painting.type === "original" && (
               <OriginalCarousel paintings={painting.images} />
             )}
           </div>
-          <div className="flex w-full max-w-[700px] flex-col justify-center gap-6 p-5 lg:w-1/2 lg:max-w-full lg:pl-20">
+          <div
+            className={`flex w-full max-w-[700px] flex-col justify-center gap-6 p-5 transition duration-700 lg:w-1/2 lg:max-w-full lg:pl-20 ${
+              fadeIn ? "" : "translate-y-1 opacity-0"
+            }`}
+          >
             <p className="text-2xl font-light tracking-widest md:text-4xl">
               {painting.name}
             </p>

@@ -67,7 +67,7 @@ export default function ShopPage() {
         </div>
       )}
       {!loading && paintingType === "PRINTS" && (
-        <div className="flex max-w-[700px] flex-wrap lg:max-w-[1200px]">
+        <div className="flex max-w-[700px] flex-wrap lg:max-w-[1400px]">
           {prints.map((painting) => (
             <PaintingSingle
               key={painting._id}
@@ -81,7 +81,7 @@ export default function ShopPage() {
         </div>
       )}
       {!loading && paintingType === "ORIGINALS" && (
-        <div className="flex max-w-[700px] flex-wrap lg:max-w-[1200px]">
+        <div className="flex max-w-[700px] flex-wrap lg:max-w-[1400px]">
           {originals.map((painting) => (
             <PaintingSingle
               key={painting._id}
