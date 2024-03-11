@@ -12,11 +12,12 @@ export default function PaintingPage() {
   const [painting, loading, error] = useFetchSinglePainting(type, id);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       setFadeIn(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0 });
     }, 300);
-  }, [loading]);
+  }, [painting, loading, error]);
 
   return (
     <div className="flex min-h-[calc(100dvh-80px)] justify-center">
