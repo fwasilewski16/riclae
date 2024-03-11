@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useFetchPaintings from "../hooks/useFetchPaintings";
 import PaintingSingle from "../components/PaintingSingle";
 
@@ -6,6 +6,12 @@ export default function ShopPage() {
   const [paintingType, setPaintingType] = useState("ALL");
 
   const [originals, prints, loading, error] = useFetchPaintings();
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }, []);
 
   return (
     <div className="flex min-h-[calc(100dvh-140px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
