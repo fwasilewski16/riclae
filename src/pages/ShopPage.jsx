@@ -8,9 +8,21 @@ export default function ShopPage() {
   const [originals, prints, loading, error] = useFetchPaintings();
 
   useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 1000);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [originals, prints, loading]);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -51,6 +63,7 @@ export default function ShopPage() {
           </button>
         </div>
       </div>
+      {scrollY}
       {loading && (
         <div className="flex h-44 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
