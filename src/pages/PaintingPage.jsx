@@ -12,7 +12,7 @@ export default function PaintingPage() {
   const [painting, loading, error] = useFetchSinglePainting(type, id);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: -1, behavior: "smooth" });
     setTimeout(() => {
       setFadeIn(true);
     }, 300);
