@@ -41,7 +41,7 @@ export default function OriginalCarousel(props) {
     nextArrow: <NextArrow />,
   };
   return (
-    <div className="w-full max-w-[100vw] lg:max-w-[850px] lg:px-10">
+    <div className="mb-10 w-full max-w-[100vw] lg:mb-0 lg:max-w-[850px] lg:px-10">
       <Fade {...settings}>
         {props.paintings.map((painting) => (
           <div key={painting} className="">
