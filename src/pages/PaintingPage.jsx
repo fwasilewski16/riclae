@@ -13,6 +13,9 @@ export default function PaintingPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       setFadeIn(true);
     }, 300);
