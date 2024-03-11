@@ -13,18 +13,6 @@ export default function ShopPage() {
 
   const [scrollY, setScrollY] = useState(0);
 
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center bg-[#FAF2F5]">
       <div className="flex justify-center">
@@ -63,7 +51,6 @@ export default function ShopPage() {
           </button>
         </div>
       </div>
-      {scrollY}
       {loading && (
         <div className="flex h-44 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
