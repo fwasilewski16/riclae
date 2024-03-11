@@ -7,12 +7,6 @@ export default function ShopPage() {
 
   const [originals, prints, loading, error] = useFetchPaintings();
 
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
-  }, []);
-
   return (
     <div className="flex min-h-[calc(100dvh-140px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
       <div className="flex justify-center">

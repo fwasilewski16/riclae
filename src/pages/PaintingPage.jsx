@@ -12,8 +12,8 @@ export default function PaintingPage() {
   const [painting, loading, error] = useFetchSinglePainting(type, id);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setTimeout(() => {
-      window.scrollTo(0, 0);
       setFadeIn(true);
     }, 300);
   }, [loading]);
