@@ -23,7 +23,11 @@ export default function PaintingPage() {
       )}
       {!loading && painting && (
         <div className="flex w-screen flex-col items-center justify-center lg:flex-row">
-          <div className="flex h-full max-w-[700px] items-center px-5 lg:max-h-[calc(100dvh-80px)] lg:w-1/2 lg:max-w-full lg:justify-end lg:py-5">
+          <div
+            className={`flex h-full max-w-[700px] items-center ${
+              painting.type === "print" && "px-5"
+            } lg:max-h-[calc(100dvh-80px)] lg:w-1/2 lg:max-w-[100dvw] lg:justify-end lg:py-5`}
+          >
             {<img className="max-h-full object-cover" src={painting.image} />}
             {painting.type === "original" && (
               <OriginalCarousel paintings={painting.images} />
@@ -32,9 +36,6 @@ export default function PaintingPage() {
           <div className="flex w-full max-w-[700px] flex-col justify-center gap-6 p-5 lg:w-1/2 lg:max-w-full lg:pl-20">
             <p className="text-2xl font-thin tracking-widest md:text-4xl">
               {painting.name}
-            </p>
-            <p className="text-lg font-thin tracking-widest md:text-2xl">
-              £{painting.price}
             </p>
             {painting.type === "original" && (
               <p className="text-lg font-thin tracking-widest">
@@ -64,6 +65,9 @@ export default function PaintingPage() {
                 Numbered and signed
               </p>
             )}
+            <p className="text-lg font-thin tracking-widest md:text-2xl">
+              £{painting.price}
+            </p>
             <button
               onClick={() => dispatch(cartActions.addToCart(painting))}
               className="w-fit bg-black px-4 py-3 font-thin tracking-widest text-white"

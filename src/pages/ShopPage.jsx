@@ -89,6 +89,7 @@ export default function ShopPage() {
               type={painting.type}
               name={painting.name}
               price={painting.price}
+              id={painting.id}
             />
           ))}
         </div>
