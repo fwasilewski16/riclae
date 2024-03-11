@@ -8,7 +8,7 @@ export default function ShopPage() {
   const [originals, prints, loading, error] = useFetchPaintings();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: -1, behavior: "smooth" });
   }, [originals, prints, loading]);
 
   const [scrollY, setScrollY] = useState(0);
