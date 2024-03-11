@@ -29,8 +29,8 @@ export default function MobileMenu(props) {
           }}
           className="mr-6 mt-4 flex size-12 items-center justify-center"
         >
-          <div className="h-full w-[2px] rotate-45 rounded-lg bg-black" />
-          <div className="h-full w-[2px] -rotate-45 rounded-lg bg-black" />
+          <div className="h-10 w-[1px] rotate-45 rounded-lg bg-black" />
+          <div className="h-10 w-[1px] -rotate-45 rounded-lg bg-black" />
         </div>
       </div>
       <div className="mt-10 h-[1px] w-1/2 bg-black" />

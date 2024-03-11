@@ -34,43 +34,39 @@ export default function PaintingPage() {
             )}
           </div>
           <div className="flex w-full max-w-[700px] flex-col justify-center gap-6 p-5 lg:w-1/2 lg:max-w-full lg:pl-20">
-            <p className="text-2xl font-thin tracking-widest md:text-4xl">
+            <p className="text-2xl tracking-widest md:text-4xl">
               {painting.name}
             </p>
             {painting.type === "original" && (
-              <p className="text-lg font-thin tracking-widest">
-                {painting.year}
-              </p>
+              <p className="text-lg tracking-widest">{painting.year}</p>
             )}
             <div>
               {painting.type === "print" && (
-                <p className="text-lg font-thin tracking-widest">
+                <p className="text-lg tracking-widest">
                   Printed Area - {painting.printedArea}
                 </p>
               )}
               {painting.type === "print" && (
-                <p className="text-lg font-thin tracking-widest">
+                <p className="text-lg tracking-widest">
                   Print Size - {painting.printSize}
                 </p>
               )}
               {painting.type === "original" &&
                 painting.additionalInfo.map((info, index) => (
-                  <p key={index} className="text-lg font-thin tracking-widest">
+                  <p key={index} className="text-lg tracking-widest">
                     {info}
                   </p>
                 ))}
             </div>
             {painting.numberedSigned && (
-              <p className="text-lg font-thin tracking-widest">
-                Numbered and signed
-              </p>
+              <p className="text-lg tracking-widest">Numbered and signed</p>
             )}
-            <p className="text-lg font-thin tracking-widest md:text-2xl">
+            <p className="text-lg tracking-widest md:text-2xl">
               £{painting.price}
             </p>
             <button
               onClick={() => dispatch(cartActions.addToCart(painting))}
-              className="w-fit bg-black px-4 py-3 font-thin tracking-widest text-white"
+              className="w-fit bg-black px-3 py-3 tracking-widest text-white"
             >
               ADD TO CART
             </button>
