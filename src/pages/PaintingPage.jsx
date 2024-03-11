@@ -15,7 +15,6 @@ export default function PaintingPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       setFadeIn(true);
-      window.scrollTo({ top: 0 });
     }, 300);
   }, [painting, loading, error]);
 

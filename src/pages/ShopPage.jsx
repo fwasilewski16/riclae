@@ -9,10 +9,10 @@ export default function ShopPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [originals, prints, loading, error]);
+  }, [originals, prints, loading]);
 
   return (
-    <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center overflow-x-hidden bg-[#FAF2F5]">
+    <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center bg-[#FAF2F5]">
       <div className="flex justify-center">
         <div className="mb-8 flex max-w-[100vw] items-center justify-center gap-4 px-6 py-[1px] pt-4">
           <button
