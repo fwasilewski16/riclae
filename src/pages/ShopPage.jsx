@@ -11,8 +11,6 @@ export default function ShopPage() {
     window.scrollTo({ top: -1, behavior: "smooth" });
   }, [originals, prints, loading]);
 
-  const [scrollY, setScrollY] = useState(0);
-
   return (
     <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center bg-[#FAF2F5]">
       <div className="flex justify-center">
