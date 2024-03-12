@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useImage } from "react-image";
 
 export default function PaintingSingle(props) {
   const [fadeIn, setFadeIn] = useState(false);
   const [textAnimation, setTextAnimation] = useState(false);
   const [overlayDiabled, setOverlayDisabled] = useState(true);
-  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const { src } = useImage({
+    srcList: props.image,
+  });
 
   return (
     <NavLink
@@ -19,27 +23,23 @@ export default function PaintingSingle(props) {
       className="group relative flex w-full justify-center p-6 lg:aspect-square lg:max-w-[50%]"
     >
       <div className="flex items-center justify-center">
-        <img
-          src={props.image}
-          className={`h-full transition duration-700 ${
-            fadeIn ? "" : "-translate-y-1 opacity-0"
-          }`}
-          onLoad={() => {
-            setImageLoaded(true);
-            setTimeout(() => {
-              setFadeIn(true);
-            }, 100);
-            setTimeout(() => {
-              setOverlayDisabled(false);
-            }, 600);
-          }}
-        />
+        <Suspense fallback={<p>Loading...</p>}>
+          <img
+            src={src}
+            className={`h-full transition duration-700 ${
+              fadeIn ? "" : "-translate-y-1 opacity-0"
+            }`}
+            onLoad={() => {
+              setTimeout(() => {
+                setFadeIn(true);
+              }, 100);
+              setTimeout(() => {
+                setOverlayDisabled(false);
+              }, 600);
+            }}
+          />
+        </Suspense>
       </div>
-      <div
-        className={`absolute bottom-0 left-0 right-0 top-0 ${
-          imageLoaded ? "opacity-0" : "animate-pulse"
-        } bg-black transition duration-500`}
-      ></div>
       <div
         className={`absolute bottom-0 left-0 right-0 top-0 hidden opacity-0 transition duration-500 ${
           !overlayDiabled && "group-hover:opacity-100"
