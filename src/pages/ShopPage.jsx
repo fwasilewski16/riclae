@@ -4,26 +4,12 @@ import PaintingSingle from "../components/PaintingSingle";
 
 export default function ShopPage() {
   const [paintingType, setPaintingType] = useState("ALL");
-  const [windowLoading, setWindowLoading] = useState(true);
 
   const [originals, prints, loading, error] = useFetchPaintings();
-
-  function onLoadFunction() {
-    console.log("loaded");
-    setWindowLoading(false);
-  }
 
   useEffect(() => {
     window.scrollTo({ top: -1, behavior: "smooth" });
   }, [originals, prints, loading]);
-
-  useEffect(() => {
-    window.addEventListener("load", onLoadFunction);
-
-    return () => {
-      window.removeEventListener("load", onLoadFunction);
-    };
-  }, []);
 
   return (
     <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center bg-[#FAF2F5]">
@@ -63,7 +49,7 @@ export default function ShopPage() {
           </button>
         </div>
       </div>
-      {loading && windowLoading && (
+      {loading && (
         <div className="flex h-44 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
         </div>

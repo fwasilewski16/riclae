@@ -5,6 +5,7 @@ export default function PaintingSingle(props) {
   const [fadeIn, setFadeIn] = useState(false);
   const [textAnimation, setTextAnimation] = useState(false);
   const [overlayDiabled, setOverlayDisabled] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <NavLink
@@ -24,6 +25,7 @@ export default function PaintingSingle(props) {
             fadeIn ? "" : "-translate-y-1 opacity-0"
           }`}
           onLoad={() => {
+            setImageLoaded(true);
             setTimeout(() => {
               setFadeIn(true);
             }, 100);
@@ -33,6 +35,11 @@ export default function PaintingSingle(props) {
           }}
         />
       </div>
+      <div
+        className={`absolute bottom-0 left-0 right-0 top-0 ${
+          imageLoaded ? "opacity-0" : "animate-pulse"
+        } bg-black transition duration-500`}
+      ></div>
       <div
         className={`absolute bottom-0 left-0 right-0 top-0 hidden opacity-0 transition duration-500 ${
           !overlayDiabled && "group-hover:opacity-100"
