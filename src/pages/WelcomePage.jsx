@@ -20,7 +20,7 @@ function LinkMobile(props) {
   return (
     <NavLink
       to={props.to}
-      className="flex w-1/3 justify-center tracking-widest md:text-xl"
+      className="flex w-1/3 justify-center font-extralight tracking-widest md:text-xl"
     >
       {props.children}
     </NavLink>
@@ -42,7 +42,7 @@ export default function MainPage() {
           animationText ? "" : "opacity-0"
         }`}
       >
-        <h2 className="text-5xl font-thin tracking-widest">RICLAE</h2>
+        <h2 className="text-5xl font-extralight tracking-widest">RICLAE</h2>
         <div className="flex gap-1">
           <LinkDesktop to={"/shop"}>SHOP</LinkDesktop>
           <Divider />

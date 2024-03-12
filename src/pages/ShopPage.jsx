@@ -19,29 +19,29 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("ALL");
             }}
-            className={`h-full w-20 gap-4 text-center text-xl font-thin tracking-widest lg:w-60 ${
+            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
               paintingType === "ALL" && "bg-white"
             }`}
           >
             ALL
           </button>
-          <p className="text-2xl">/</p>
+          <p className="text-lg">/</p>
           <button
             onClick={() => {
               setPaintingType("PRINTS");
             }}
-            className={`gap-4 text-center text-xl font-thin tracking-widest lg:w-60 ${
+            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
               paintingType === "PRINTS" && "bg-white"
             }`}
           >
             PRINTS
           </button>
-          <p className="text-2xl">/</p>
+          <p className="text-lg">/</p>
           <button
             onClick={() => {
               setPaintingType("ORIGINALS");
             }}
-            className={`gap-4 text-center text-xl font-thin tracking-widest lg:w-60  ${
+            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
               paintingType === "ORIGINALS" && "bg-white"
             }`}
           >

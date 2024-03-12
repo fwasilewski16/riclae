@@ -33,14 +33,14 @@ export default function Navbar() {
         location.pathname === "/" ? "flex lg:hidden" : "flex"
       } min-h-20 justify-center py-4`}
     >
-      <div className="relative flex min-h-full w-full items-center justify-end overflow-x-hidden px-6 lg:w-3/4 lg:px-0">
+      <div className="relative flex min-h-full w-full items-center justify-end px-6 lg:w-3/4 lg:px-0">
         <NavLink
           to="/"
           className={`${
             location.pathname === "/"
               ? "left-1/2 -translate-x-1/2"
               : "left-6 translate-x-0"
-          } absolute pb-1 text-4xl font-thin tracking-widest transition-all duration-500 md:transition-none`}
+          } absolute pb-1 text-4xl font-extralight tracking-widest transition-all duration-500 md:text-5xl md:transition-none`}
         >
           RICLAE
         </NavLink>

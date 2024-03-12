@@ -44,38 +44,41 @@ export default function PaintingPage() {
               fadeIn ? "" : "translate-y-1 opacity-0"
             }`}
           >
-            <p className="text-2xl font-light tracking-widest md:text-4xl">
+            <p className="text-3xl font-thin tracking-widest md:text-4xl md:font-light">
               {painting.name}
             </p>
             {painting.type === "original" && (
-              <p className="text-lg font-light tracking-widest">
+              <p className="text-xl font-thin tracking-widest md:text-4xl md:font-light">
                 {painting.year}
               </p>
             )}
             <div>
               {painting.type === "print" && (
-                <p className="text-lg font-light tracking-widest">
+                <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
                   Printed Area - {painting.printedArea}
                 </p>
               )}
               {painting.type === "print" && (
-                <p className="text-lg font-light tracking-widest">
+                <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
                   Print Size - {painting.printSize}
                 </p>
               )}
               {painting.type === "original" &&
                 painting.additionalInfo.map((info, index) => (
-                  <p key={index} className="text-lg font-light tracking-widest">
+                  <p
+                    key={index}
+                    className="text-xl font-thin tracking-widest md:text-xl md:font-light"
+                  >
                     {info}
                   </p>
                 ))}
             </div>
             {painting.numberedSigned && (
-              <p className="text-lg font-light tracking-widest">
+              <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
                 Numbered and signed
               </p>
             )}
-            <p className="text-lg font-light tracking-widest md:text-2xl">
+            <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
               £{painting.price}
             </p>
             <button

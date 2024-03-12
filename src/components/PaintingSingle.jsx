@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 export default function PaintingSingle(props) {
   const [fadeIn, setFadeIn] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [textAnimation, setTextAnimation] = useState(false);
   const [overlayDiabled, setOverlayDisabled] = useState(true);
 
@@ -18,15 +17,13 @@ export default function PaintingSingle(props) {
       }}
       className="group relative flex w-full justify-center p-6 lg:aspect-square lg:max-w-[50%]"
     >
-      {!imageLoaded && <p>Loading...</p>}
       <div className="flex items-center justify-center">
         <img
           src={props.image}
-          className={`h-full bg-pink-400 transition duration-700 ${
+          className={`h-full transition duration-700 ${
             fadeIn ? "" : "-translate-y-1 opacity-0"
           }`}
           onLoad={() => {
-            setImageLoaded(true);
             setTimeout(() => {
               setFadeIn(true);
             }, 100);
