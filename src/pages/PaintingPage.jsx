@@ -48,7 +48,7 @@ export default function PaintingPage() {
               {painting.name}
             </p>
             {painting.type === "original" && (
-              <p className="text-xl font-thin tracking-widest md:text-4xl md:font-light">
+              <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
                 {painting.year}
               </p>
             )}

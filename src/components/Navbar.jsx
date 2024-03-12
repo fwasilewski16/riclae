@@ -40,7 +40,7 @@ export default function Navbar() {
             location.pathname === "/"
               ? "left-1/2 -translate-x-1/2"
               : "left-6 translate-x-0"
-          } absolute pb-1 text-4xl font-extralight tracking-widest transition-all duration-500 md:text-5xl md:transition-none`}
+          } absolute pb-1 text-4xl font-thin tracking-widest transition-all duration-500 md:text-5xl md:transition-none`}
         >
           RICLAE
         </NavLink>
