@@ -63,7 +63,7 @@ export default function ShopPage() {
           </button>
         </div>
       </div>
-      {(loading || windowLoading) && (
+      {loading && windowLoading && (
         <div className="flex h-44 items-end">
           <div className="flex h-10 w-[2px] animate-spin rounded-r-xl bg-black"></div>
         </div>
