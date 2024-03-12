@@ -23,7 +23,7 @@ export default function PaintingSingle(props) {
       className="group relative flex w-full justify-center p-6 lg:aspect-square lg:max-w-[50%]"
     >
       <div className="flex items-center justify-center">
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense>
           <img
             src={src}
             className={`h-full transition duration-700 ${

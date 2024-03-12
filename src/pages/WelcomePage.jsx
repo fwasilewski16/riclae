@@ -3,7 +3,7 @@ import tan_lines from "../../src/assets/images/tan_lines.png";
 import facebook from "../../src/assets/icons/facebook.png";
 import instagram from "../../src/assets/icons/instagram.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function LinkDesktop(props) {
   return (
@@ -20,7 +20,7 @@ function LinkMobile(props) {
   return (
     <NavLink
       to={props.to}
-      className="flex w-1/3 justify-center font-extralight tracking-widest md:text-xl"
+      className="flex w-1/3 justify-center font-light tracking-widest md:text-xl"
     >
       {props.children}
     </NavLink>
@@ -28,17 +28,56 @@ function LinkMobile(props) {
 }
 
 function Divider() {
-  return <div className="h-full w-[1px] bg-black" />;
+  return <div className="h-[24px] w-[1px] bg-black" />;
 }
 
-export default function MainPage() {
+function WelcomePageMobile() {
   const [animationImage, setAnimationImage] = useState(false);
   const [animationText, setAnimationText] = useState(false);
-
   return (
-    <div className="flex max-h-[calc(100dvh-80px)] min-h-[calc(100dvh-80px)] lg:max-h-[100dvh] lg:min-h-[100dvh] lg:flex-row">
+    <div className="flex max-h-[calc(100dvh-80px)] min-h-[calc(100dvh-80px)] flex-col justify-between px-5">
+      <div className="flex h-full max-h-full min-h-full grow justify-center  py-4">
+        <img
+          src={tan_lines}
+          onLoad={() => {
+            setAnimationImage(true);
+            setTimeout(() => {
+              setAnimationText(true);
+            }, 600);
+          }}
+          className={`min-h-full object-cover transition duration-500 ${
+            !animationImage && "opacity-0"
+          }`}
+        />
+      </div>
       <div
-        className={`lg:h-min-full hidden flex-col items-center justify-center gap-7 transition duration-700 lg:flex lg:min-w-[60%] ${
+        className={`flex w-full flex-col items-center justify-center gap-5 py-5 transition duration-500 ${
+          !animationText && "opacity-0"
+        }`}
+      >
+        <div className="flex w-full max-w-[415px]">
+          <LinkMobile to={"/shop"}>SHOP</LinkMobile>
+          <Divider />
+          <LinkMobile to={"/about"}>ABOUT</LinkMobile>
+          <Divider />
+          <LinkMobile to={"/shop"}>CONTACT</LinkMobile>
+        </div>
+        <div className="flex justify-center gap-5">
+          <img className="h-5 md:h-6" src={facebook} />
+          <img className="h-5 md:h-6" src={instagram} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WelcomePageDesktop() {
+  const [animationImage, setAnimationImage] = useState(false);
+  const [animationText, setAnimationText] = useState(false);
+  return (
+    <div className="flex max-h-[100dvh] min-h-[100dvh] flex-row">
+      <div
+        className={`flex min-w-[60%] flex-col items-center justify-center gap-7 transition duration-700 ${
           animationText ? "" : "opacity-0"
         }`}
       >
@@ -55,7 +94,7 @@ export default function MainPage() {
           <img className="h-5" src={instagram} />
         </div>
       </div>
-      <div className="hidden items-center overflow-hidden lg:flex lg:w-[40%]">
+      <div className="flex w-[40%] items-center overflow-hidden">
         <img
           src={legs}
           onLoad={() => {
@@ -64,44 +103,29 @@ export default function MainPage() {
               setAnimationText(true);
             }, 600);
           }}
-          className={`w-full object-cover transition duration-500 lg:min-h-screen ${
+          className={`min-h-screen w-full object-cover transition duration-500 ${
             !animationImage && "opacity-0"
           }`}
         />
       </div>
-      <div className="flex min-h-full w-full flex-col items-center justify-between lg:hidden">
-        <div className="flex h-[100%] items-center overflow-hidden px-8 py-4">
-          <img
-            src={tan_lines}
-            onLoad={() => {
-              setAnimationImage(true);
-              setTimeout(() => {
-                setAnimationText(true);
-              }, 600);
-            }}
-            className={`min-h-full object-cover transition duration-500 ${
-              !animationImage && "opacity-0"
-            }`}
-          />
-        </div>
-        <div
-          className={`flex w-full flex-col items-center justify-center gap-5 py-5 transition duration-500 ${
-            !animationText && "opacity-0"
-          }`}
-        >
-          <div className="flex w-full max-w-[542px]">
-            <LinkMobile to={"/shop"}>SHOP</LinkMobile>
-            <Divider />
-            <LinkMobile to={"/about"}>ABOUT</LinkMobile>
-            <Divider />
-            <LinkMobile to={"/shop"}>CONTACT</LinkMobile>
-          </div>
-          <div className="flex justify-center gap-5">
-            <img className="h-5 md:h-6" src={facebook} />
-            <img className="h-5 md:h-6" src={instagram} />
-          </div>
-        </div>
-      </div>
     </div>
   );
+}
+
+export default function MainPage() {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+
+    return () =>
+      removeEventListener("resize", () => setScreenWidth(window.innerWidth));
+  }, []);
+
+  if (screenWidth < 1024) {
+    return <WelcomePageMobile />;
+  }
+  if (screenWidth >= 1024) {
+    return <WelcomePageDesktop />;
+  }
 }

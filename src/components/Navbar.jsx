@@ -31,7 +31,7 @@ export default function Navbar() {
     <div
       className={`${
         location.pathname === "/" ? "flex lg:hidden" : "flex"
-      } min-h-20 justify-center py-4`}
+      } min-h-20 justify-center overflow-x-hidden py-4`}
     >
       <div className="relative flex min-h-full w-full items-center justify-end px-6 lg:w-3/4 lg:px-0">
         <NavLink

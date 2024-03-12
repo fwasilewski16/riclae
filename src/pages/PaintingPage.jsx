@@ -3,7 +3,19 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../store";
 import useFetchSinglePainting from "../hooks/useFetchSinglePainting";
 import OriginalCarousel from "../components/OriginalCarousel";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
+import { useImage } from "react-image";
+
+function OriginalImage(props) {
+  const { src } = useImage({
+    srcList: props.src,
+  });
+  return (
+    <Suspense>
+      <img src={src} className="max-h-full object-cover" />
+    </Suspense>
+  );
+}
 
 export default function PaintingPage() {
   const dispatch = useDispatch();
@@ -34,7 +46,9 @@ export default function PaintingPage() {
               fadeIn ? "" : "-translate-y-1 opacity-0"
             }`}
           >
-            {<img className="max-h-full object-cover" src={painting.image} />}
+            {painting.type === "print" && (
+              <OriginalImage src={painting.image} />
+            )}
             {painting.type === "original" && (
               <OriginalCarousel paintings={painting.images} />
             )}
