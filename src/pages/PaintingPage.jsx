@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { NavLink, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store";
 import useFetchSinglePainting from "../hooks/useFetchSinglePainting";
 import OriginalCarousel from "../components/OriginalCarousel";
@@ -22,6 +22,9 @@ export default function PaintingPage() {
   const { type, id } = useParams();
   const [fadeIn, setFadeIn] = useState(false);
   const [painting, loading, error] = useFetchSinglePainting(type, id);
+  const cartContent = useSelector((state) => state.cart.cart);
+
+  const itemAdded = cartContent.some((item) => item.id === id);
 
   useEffect(() => {
     window.scrollTo({ top: -1, behavior: "smooth" });
@@ -95,12 +98,53 @@ export default function PaintingPage() {
             <p className="text-xl font-thin tracking-widest md:text-xl md:font-light">
               £{painting.price}
             </p>
-            <button
-              onClick={() => dispatch(cartActions.addToCart(painting))}
-              className="w-fit bg-black px-3 py-3 tracking-widest text-white"
-            >
-              ADD TO CART
-            </button>
+            {painting.type === "print" ? (
+              <div className="flex gap-4">
+                <button
+                  onClick={() => {
+                    if (itemAdded) {
+                      dispatch(cartActions.removeFromCart(painting.id));
+                    }
+                    if (!itemAdded) {
+                      dispatch(cartActions.addToCart(painting));
+                    }
+                  }}
+                  className="z-10 h-11 w-[134px] overflow-hidden bg-black tracking-widest text-white"
+                >
+                  <div
+                    className={`flex min-h-full items-center justify-center ${
+                      itemAdded && "-translate-y-11"
+                    } transition-all duration-500`}
+                  >
+                    <p>ADD TO CART</p>
+                  </div>
+                  <div
+                    className={`flex min-h-full items-center justify-center ${
+                      itemAdded && "-translate-y-11"
+                    } transition-all duration-500`}
+                  >
+                    <p>REMOVE</p>
+                  </div>
+                </button>
+                <button
+                  className={`h-11 w-[134px] border border-black bg-white tracking-widest ${
+                    itemAdded ? "" : "-translate-x-[150px] opacity-0"
+                  } transition-all duration-500`}
+                >
+                  <NavLink to="/cart">GO TO CART</NavLink>
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-6">
+                <p className="tracking-widest">
+                  To purchase this original painting, please contact me
+                  directly.
+                </p>
+                <button className="h-11 w-[134px] bg-black tracking-widest text-white">
+                  <NavLink to="/contact">CONTACT</NavLink>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

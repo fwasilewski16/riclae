@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export default function MobileMenu(props) {
   const [menuVisible, setMenuVisible] = useState(false);
+  const cartContent = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     setTimeout(() => {
@@ -12,13 +14,13 @@ export default function MobileMenu(props) {
 
   return (
     <div
-      className={`fixed left-0 right-0 top-0 z-10 flex h-screen flex-col items-center backdrop-blur-lg transition duration-500 ${
+      className={`fixed left-0 right-0 top-0 z-10 flex h-screen flex-col items-center backdrop-blur-xl transition duration-500 ${
         !menuVisible && "opacity-0"
       }`}
     >
       <div className="flex h-20 w-full justify-between bg-[#FAF2F5] pl-6">
-        <p className="flex h-20 items-center justify-center  tracking-widest">
-          CART ( 0 )
+        <p className="flex h-20 items-center justify-center tracking-widest">
+          CART ( {cartContent.length} )
         </p>
         <div
           onClick={() => {
