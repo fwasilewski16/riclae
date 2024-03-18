@@ -8,6 +8,7 @@ import AboutPage from "./pages/AboutPage";
 import ShopPage from "./pages/ShopPage";
 import PaintingPage from "./pages/PaintingPage";
 import CartPage from "./pages/CartPage";
+import ContactPage from "./pages/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/shop/:type/:id", element: <PaintingPage /> },
       { path: "/about", element: <AboutPage /> },
       { path: "/cart", element: <CartPage /> },
+      { path: "/contact", element: <ContactPage /> },
     ],
   },
   {

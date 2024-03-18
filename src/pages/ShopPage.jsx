@@ -4,22 +4,30 @@ import PaintingSingle from "../components/PaintingSingle";
 
 export default function ShopPage() {
   const [paintingType, setPaintingType] = useState("ALL");
+  const [fadeIn, setFadeIn] = useState(false);
 
   const [originals, prints, loading, error] = useFetchPaintings();
 
   useEffect(() => {
     window.scrollTo({ top: -1, behavior: "smooth" });
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 300);
   }, [originals, prints, loading]);
 
   return (
     <div className="flex min-h-[calc(100dvh-80px)] flex-col items-center bg-[#FAF2F5]">
       <div className="flex justify-center">
-        <div className="mb-8 flex max-w-[100vw] items-center justify-center gap-4 px-6 py-[1px] pt-4">
+        <div
+          className={`mb-8 flex max-w-[100vw] items-center justify-center gap-4 px-6 py-[1px] pt-4 transition-all duration-700 ${
+            fadeIn ? "" : "-translate-y-full opacity-0"
+          }`}
+        >
           <button
             onClick={() => {
               setPaintingType("ALL");
             }}
-            className={`font-inter h-full w-20 gap-4 text-center tracking-wide lg:w-60 ${
+            className={`h-full w-20 gap-4 text-center font-inter tracking-wide lg:w-60 ${
               paintingType === "ALL" && "bg-white"
             }`}
           >
@@ -30,7 +38,7 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("PRINTS");
             }}
-            className={`font-inter h-full w-20 gap-4 text-center tracking-wide lg:w-60 ${
+            className={`h-full w-20 gap-4 text-center font-inter tracking-wide lg:w-60 ${
               paintingType === "PRINTS" && "bg-white"
             }`}
           >
@@ -41,7 +49,7 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("ORIGINALS");
             }}
-            className={`font-inter h-full w-24 gap-4 text-center tracking-wide lg:w-60 ${
+            className={`h-full w-24 gap-4 text-center font-inter tracking-wide lg:w-60 ${
               paintingType === "ORIGINALS" && "bg-white"
             }`}
           >

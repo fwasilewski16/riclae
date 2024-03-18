@@ -28,7 +28,7 @@ function LinkMobile(props) {
 }
 
 function Divider() {
-  return <div className="h-[24px] w-[2px] bg-black" />;
+  return <div className="h-[24px] w-[1px] bg-black" />;
 }
 
 function WelcomePageMobile() {

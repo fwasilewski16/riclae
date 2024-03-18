@@ -18,7 +18,7 @@ export default function MobileMenu(props) {
         !menuVisible && "opacity-0"
       }`}
     >
-      <div className="flex h-20 w-full justify-between bg-[#FAF2F5] pl-6">
+      <div className="flex h-20 w-full justify-between pl-6">
         <NavLink
           to="/cart"
           onClick={() => {

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function CartItem(props) {
   const dispatch = useDispatch();
@@ -100,12 +101,25 @@ export default function CartPage() {
   const total = useSelector((state) => state.cart.total);
   const shipping = useSelector((state) => state.cart.shipping);
 
+  const [fadeIn, setFadeIn] = useState(false);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scrollTo({ top: -1, behavior: "smooth" });
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 300);
+  }, []);
 
   return (
     <div className="flex min-h-[calc(100dvh-80px)] justify-center">
-      <div className="min-h-full w-[95%] xl:w-1/2">
-        <h2 className="my-10 text-center font-inter text-5xl font-extralight tracking-wide">
+      <div
+        className={`min-h-full w-[95%] transition-all duration-700 xl:w-1/2 ${
+          fadeIn ? "" : "-translate-y-1 opacity-0"
+        }`}
+      >
+        <h2 className="my-10 text-center font-inter text-4xl font-extralight tracking-wide">
           CART:
         </h2>
         {cartContent.map((item, index) => (
@@ -114,13 +128,15 @@ export default function CartPage() {
         {cartContent.length != 0 ? (
           <div className="flex flex-col items-end gap-5 py-5">
             <div className="flex items-center ">
-              <p className="mx-2 font-inter tracking-wide">SHIPPING:</p>
+              <p className="font-inter text-sm tracking-wide md:mx-2 md:text-base">
+                SHIPPING:
+              </p>
               <button
                 onClick={() => {
                   dispatch(cartActions.changeShipping(5));
                   dispatch(cartActions.calculateTotal());
                 }}
-                className={`h-full w-20 gap-4 text-center font-inter tracking-wide transition-all duration-200 lg:w-36 ${
+                className={`h-full w-24 gap-4 text-center font-inter text-sm tracking-wide transition-all duration-200 md:text-base lg:w-32 ${
                   shipping === 5 && "bg-white"
                 }`}
               >
@@ -132,7 +148,7 @@ export default function CartPage() {
                   dispatch(cartActions.changeShipping(10));
                   dispatch(cartActions.calculateTotal());
                 }}
-                className={`h-full w-20 gap-4 text-center font-inter tracking-wide transition-all duration-200 lg:w-32 ${
+                className={`h-full w-24 gap-4 text-center font-inter text-sm tracking-wide transition-all duration-200 md:text-base lg:w-32 ${
                   shipping === 10 && "bg-white"
                 }`}
               >
@@ -147,9 +163,12 @@ export default function CartPage() {
               <p className="font-inter text-lg tracking-wide">£{total}</p>
             </div>
             <div className="mt-4 flex w-full justify-between py-4">
-              <button className="h-11 w-[134px] border border-black bg-white font-inter tracking-wide">
+              <NavLink
+                to="/shop"
+                className="flex h-11 w-[134px] items-center justify-center border border-black bg-white font-inter tracking-wide"
+              >
                 SHOP
-              </button>
+              </NavLink>
               <button
                 disabled={shipping === 0}
                 className="h-11 w-[134px] bg-black font-inter tracking-wide text-white transition-all duration-500 disabled:opacity-50"
