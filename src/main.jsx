@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
-import store from "./store/index.jsx";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./store/index.jsx";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }}
     >
       <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </Auth0Provider>
   </React.StrictMode>,

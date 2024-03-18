@@ -15,7 +15,7 @@ function CartItem(props) {
                 ? props.item.image
                 : props.item.images[0]
             }
-            className="max-h-20 min-w-full object-cover md:max-h-24"
+            className="max-h-24 min-w-full object-cover"
           />
         </div>
         <div className="flex flex-col gap-2 md:justify-center">
@@ -27,7 +27,7 @@ function CartItem(props) {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-between md:flex-row md:gap-16">
+      <div className="flex flex-col items-center gap-3 md:flex-row md:gap-16">
         <div className="flex items-center justify-between md:gap-5">
           <input
             onChange={(event) => {
@@ -71,7 +71,7 @@ function CartItem(props) {
             value={props.item.cartQty}
             min={1}
             max={props.item.qty}
-            className="h-10 w-10 rounded-lg border border-black bg-white text-center font-inter"
+            className="mr-4 h-10 w-10 rounded-lg border border-black bg-white text-center font-inter"
           />
           <div className="flex w-10 items-center justify-center">
             <p className="font-inter tracking-wide md:text-xl md:font-light md:tracking-wide">
@@ -85,7 +85,7 @@ function CartItem(props) {
               dispatch(cartActions.removeFromCart(props.item.id));
               dispatch(cartActions.calculateTotal());
             }}
-            className="h-8 w-20 bg-black font-inter font-light tracking-wide text-white md:h-11 md:w-[134px]"
+            className="h-8 w-24 bg-black font-inter text-sm font-light tracking-wide text-white md:h-11 md:w-[134px]"
           >
             REMOVE
           </button>
@@ -108,8 +108,8 @@ export default function CartPage() {
         <h2 className="my-10 text-center font-inter text-5xl font-extralight tracking-wide">
           CART:
         </h2>
-        {cartContent.map((item) => (
-          <CartItem item={item} />
+        {cartContent.map((item, index) => (
+          <CartItem item={item} key={index} />
         ))}
         {cartContent.length != 0 ? (
           <div className="flex flex-col items-end gap-5 py-5">

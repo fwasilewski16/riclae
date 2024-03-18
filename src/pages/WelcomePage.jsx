@@ -9,7 +9,7 @@ function LinkDesktop(props) {
   return (
     <NavLink
       to={props.to}
-      className="font-inter relative flex w-32 justify-center py-1 tracking-wide after:absolute after:-bottom-0 after:left-1/2 after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
+      className="relative flex w-32 justify-center py-1 font-inter tracking-wide after:absolute after:-bottom-0 after:left-1/2 after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
     >
       {props.children}
     </NavLink>
@@ -20,7 +20,7 @@ function LinkMobile(props) {
   return (
     <NavLink
       to={props.to}
-      className="font-inter flex w-1/3 justify-center font-light tracking-wide md:text-xl"
+      className="flex w-1/3 justify-center font-inter text-lg font-light tracking-wide md:text-xl"
     >
       {props.children}
     </NavLink>
@@ -36,7 +36,7 @@ function WelcomePageMobile() {
   const [animationText, setAnimationText] = useState(false);
   return (
     <div className="flex max-h-[calc(100dvh-80px)] min-h-[calc(100dvh-80px)] flex-col justify-between px-5">
-      <div className="flex h-full max-h-full min-h-full grow justify-center  py-4">
+      <div className="flex h-full max-h-full min-h-full grow justify-center">
         <img
           src={tan_lines}
           onLoad={() => {
@@ -51,7 +51,7 @@ function WelcomePageMobile() {
         />
       </div>
       <div
-        className={`flex w-full flex-col items-center justify-center gap-5 py-5 transition duration-500 ${
+        className={`flex w-full flex-col items-center justify-center gap-4 py-4 transition duration-500 ${
           !animationText && "opacity-0"
         }`}
       >

@@ -1,4 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { persistReducer } from "redux-persist";
+import persistStore from "redux-persist/es/persistStore";
+import storage from "redux-persist/lib/storage";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -54,10 +57,24 @@ const cartSlice = createSlice({
   },
 });
 
+const persistedReducer = persistReducer(
+  {
+    key: "root",
+    storage,
+  },
+  cartSlice.reducer,
+);
+
 const store = configureStore({
-  reducer: { cart: cartSlice.reducer },
+  reducer: { cart: persistedReducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
-export const cartActions = cartSlice.actions;
+const persistor = persistStore(store);
 
-export default store;
+export { store, persistor };
+
+export const cartActions = cartSlice.actions;
