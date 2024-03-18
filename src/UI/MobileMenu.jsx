@@ -19,7 +19,7 @@ export default function MobileMenu(props) {
       }`}
     >
       <div className="flex h-20 w-full justify-between bg-[#FAF2F5] pl-6">
-        <p className="flex h-20 items-center justify-center tracking-widest">
+        <p className="font-inter flex h-20 items-center justify-center tracking-wide">
           CART ( {cartContent.length} )
         </p>
         <div
@@ -44,7 +44,7 @@ export default function MobileMenu(props) {
             props.setMobileMenuVisible(false);
           }, 500);
         }}
-        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+        className="font-inter flex h-20 items-center justify-center text-2xl tracking-wide"
       >
         SHOP
       </NavLink>
@@ -65,7 +65,7 @@ export default function MobileMenu(props) {
             props.setMobileMenuVisible(false);
           }, 500);
         }}
-        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+        className="font-inter flex h-20 items-center justify-center text-2xl tracking-wide"
       >
         ABOUT
       </NavLink>
@@ -78,7 +78,7 @@ export default function MobileMenu(props) {
           }, 500);
         }}
         to="/contact"
-        className="flex h-20 items-center justify-center text-2xl tracking-widest"
+        className="font-inter flex h-20 items-center justify-center text-2xl tracking-wide"
       >
         CONTACT
       </NavLink>

@@ -7,16 +7,12 @@ const cartSlice = createSlice({
     addToCart(state, action) {
       return {
         ...state,
-        total: state.total + action.payload.price,
         cart: [...state.cart, { ...action.payload, cartQty: 1 }],
       };
     },
     removeFromCart(state, action) {
-      const index = state.cart.findIndex((item) => action.payload === item.id);
-      const price = state.cart[index].price;
       return {
         ...state,
-        total: state.total - price,
         cart: state.cart.filter((item) => item.id != action.payload),
       };
     },
@@ -26,17 +22,34 @@ const cartSlice = createSlice({
       );
       const newArray = state.cart.map((item, index) => {
         if (index === indexOld) {
-          return { ...item, cartQty: action.payload.newQty };
+          return {
+            ...item,
+            cartQty:
+              action.payload.newQty > 0 ? Number(action.payload.newQty) : "",
+          };
         }
         return item;
       });
-      const price = state.cart[indexOld].price;
       if (action.payload.newQty > state.cart[indexOld].cartQty) {
-        return { ...state, total: state.total + price, cart: newArray };
+        return { ...state, cart: newArray };
       }
       if (action.payload.newQty < state.cart[indexOld].cartQty) {
-        return { ...state, total: state.total - price, cart: newArray };
+        return { ...state, cart: newArray };
       }
+    },
+    changeShipping(state, action) {
+      return { ...state, shipping: action.payload };
+    },
+    calculateTotal(state) {
+      let total = 0;
+      state.cart.forEach((item) => {
+        total = total + item.price * item.cartQty;
+      });
+      return {
+        ...state,
+        total: state.cart.length === 0 ? 0 : total + state.shipping,
+        shipping: state.cart.length === 0 ? 0 : state.shipping,
+      };
     },
   },
 });

@@ -9,7 +9,7 @@ function LinkDesktop(props) {
   return (
     <NavLink
       to={props.to}
-      className="relative flex w-32 justify-center py-1 tracking-widest after:absolute after:-bottom-0 after:left-1/2 after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
+      className="font-inter relative flex w-32 justify-center py-1 tracking-wide after:absolute after:-bottom-0 after:left-1/2 after:h-[1px] after:w-16 after:-translate-x-1/2 after:bg-black after:opacity-0 after:transition-all after:duration-300 hover:after:opacity-100"
     >
       {props.children}
     </NavLink>
@@ -20,7 +20,7 @@ function LinkMobile(props) {
   return (
     <NavLink
       to={props.to}
-      className="flex w-1/3 justify-center font-light tracking-widest md:text-xl"
+      className="font-inter flex w-1/3 justify-center font-light tracking-wide md:text-xl"
     >
       {props.children}
     </NavLink>
@@ -28,7 +28,7 @@ function LinkMobile(props) {
 }
 
 function Divider() {
-  return <div className="h-[24px] w-[1px] bg-black" />;
+  return <div className="h-[24px] w-[2px] bg-black" />;
 }
 
 function WelcomePageMobile() {
@@ -81,7 +81,9 @@ function WelcomePageDesktop() {
           animationText ? "" : "opacity-0"
         }`}
       >
-        <h2 className="text-5xl font-extralight tracking-widest">RICLAE</h2>
+        <h2 className="font-inter text-5xl font-extralight tracking-wide">
+          RICLAE
+        </h2>
         <div className="flex gap-1">
           <LinkDesktop to={"/shop"}>SHOP</LinkDesktop>
           <Divider />

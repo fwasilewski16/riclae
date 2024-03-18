@@ -19,7 +19,7 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("ALL");
             }}
-            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
+            className={`font-inter h-full w-20 gap-4 text-center tracking-wide lg:w-60 ${
               paintingType === "ALL" && "bg-white"
             }`}
           >
@@ -30,7 +30,7 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("PRINTS");
             }}
-            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
+            className={`font-inter h-full w-20 gap-4 text-center tracking-wide lg:w-60 ${
               paintingType === "PRINTS" && "bg-white"
             }`}
           >
@@ -41,7 +41,7 @@ export default function ShopPage() {
             onClick={() => {
               setPaintingType("ORIGINALS");
             }}
-            className={`h-full w-20 gap-4 text-center tracking-widest lg:w-60 ${
+            className={`font-inter h-full w-24 gap-4 text-center tracking-wide lg:w-60 ${
               paintingType === "ORIGINALS" && "bg-white"
             }`}
           >
